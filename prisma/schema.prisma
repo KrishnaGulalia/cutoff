@@ -1,0 +1,121 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum QuestionType {
+  SINGLE_CHOICE
+  MULTIPLE_SELECT
+  NUMERICAL
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+
+  attempts  Attempt[]
+}
+
+model Test {
+  id              Int      @id @default(autoincrement())
+  title           String
+  year            Int?
+  session         String?
+  durationMinutes Int      @default(180)
+  createdAt       DateTime @default(now())
+
+  testQuestions   TestQuestion[]
+  attempts        Attempt[]
+}
+
+model Question {
+  id            Int          @id @default(autoincrement())
+  questionType  QuestionType
+  subject       String
+  chapter       String
+  topic         String?
+  difficulty    String
+  content       Json
+  correctAnswer Json
+  explanation   String?
+  createdAt     DateTime     @default(now())
+
+  testQuestions TestQuestion[]
+  answers       Answer[]
+
+  @@index([subject, chapter])
+  @@index([difficulty])
+}
+
+model TestQuestion {
+  id            Int      @id @default(autoincrement())
+  testId        Int
+  questionId    Int
+  position      Int
+  marks         Float    @default(4)
+  negativeMarks Float    @default(1)
+
+  test          Test     @relation(fields: [testId], references: [id], onDelete: Cascade)
+  question      Question @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  @@unique([testId, position])
+  @@unique([testId, questionId])
+  @@index([questionId])
+}
+
+model Attempt {
+  id          Int           @id @default(autoincrement())
+  userId      Int
+  testId      Int
+  status      AttemptStatus @default(IN_PROGRESS)
+  startedAt   DateTime      @default(now())
+  submittedAt DateTime?
+  score       Float?
+  correctCount Int?
+  wrongCount   Int?
+  skippedCount Int?
+
+  user        User          @relation(fields: [userId], references: [id], onDelete: Restrict)
+  test        Test          @relation(fields: [testId], references: [id], onDelete: Restrict)
+  answers     Answer[]
+
+  @@index([userId, testId])
+  @@index([status])
+}
+
+model Answer {
+  id                Int      @id @default(autoincrement())
+  attemptId         Int
+  questionId        Int
+  response          Json?
+  isCorrect         Boolean?
+  marksAwarded      Float?
+  timeSpentSeconds  Int      @default(0)
+  answeredAt        DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  attempt           Attempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question          Question @relation(fields: [questionId], references: [id], onDelete: Restrict)
+
+  @@unique([attemptId, questionId])
+  @@index([questionId])
+}
