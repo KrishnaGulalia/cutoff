@@ -7,11 +7,9 @@ function healthRoutes(database) {
       await database.query("SELECT 1 FROM cutoff.tests LIMIT 1");
       res.json({ status: "ok" });
     } catch {
-      res
-        .status(503)
-        .json({
-          error: "Database is not ready. Check the connection and migrations.",
-        });
+      res.status(503).json({
+        error: "Database is not ready. Check the connection and migrations.",
+      });
     }
   });
   return router;
