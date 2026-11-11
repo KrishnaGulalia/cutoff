@@ -1,18 +1,171 @@
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { useResource } from '../hooks/useResource';
-import { Loading, ErrorState } from '../components/States';
-import { Analytics } from '../components/Analytics';
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useResource } from "../hooks/useResource";
+import { Loading, ErrorState } from "../components/States";
+import { Analytics } from "../components/Analytics";
 export function ResultsPage() {
-  const { id } = useParams(); const result = useResource('/attempts/'+id+'/results'); const [filter,setFilter] = useState('all');
-  if (result.loading) return <Loading text="Putting your attempt in perspective…"/>;
-  if (result.error) return <ErrorState message={result.error} retry={result.reload}/>;
+  const { id } = useParams();
+  const result = useResource("/attempts/" + id + "/results");
+  const [filter, setFilter] = useState("all");
+  if (result.loading)
+    return <Loading text="Putting your attempt in perspective…" />;
+  if (result.error)
+    return <ErrorState message={result.error} retry={result.reload} />;
   const { summary, questions, analytics, attempt } = result.data;
-  return <><Link className="back-link" to="/app/history">← My attempts</Link><header className="page-heading"><span className="section-label">YOUR ATTEMPT, IN PERSPECTIVE</span><h1>Every answer<br/><span>tells you something.</span></h1><p>{attempt.test_title} · {new Date(attempt.submitted_at).toLocaleDateString()}</p></header>
-    <section className="result-overview"><div className="score-block"><span>YOUR SCORE</span><strong>{summary.score}<small> / {summary.maximumMarks}</small></strong><p>{summary.accuracy === null ? 'No questions attempted' : summary.accuracy+'% accuracy on attempted questions'}</p></div><div className="result-counts"><div><strong>{summary.correct}</strong><span>Correct</span></div><div><strong>{summary.incorrect}</strong><span>Incorrect</span></div><div><strong>{summary.skipped}</strong><span>Skipped</span></div><p>{Math.floor(summary.timeSeconds/60)}m {summary.timeSeconds%60}s recorded on questions</p></div></section>
-    <Analytics data={analytics}/><section className="review-section"><div className="section-heading"><h2>Go through your thinking</h2><label className="compact-label">Show<select aria-label="Show" value={filter} onChange={event => setFilter(event.target.value)}><option value="all">All questions</option><option value="incorrect">Incorrect</option><option value="unattempted">Skipped</option><option value="correct">Correct</option></select></label></div>
-    {questions.filter(question => filter === 'all' || question.outcome === filter).map(question => <details className="review-question" key={question.question_id}><summary><span className="review-number">{question.position}</span><span>{question.question_text}</span><span className={'badge '+question.outcome}>{question.outcome === 'unattempted' ? 'Skipped' : question.outcome}</span><strong>{question.marksAwarded > 0 ? '+' : ''}{question.marksAwarded}</strong></summary><div className="review-content"><p className="muted">{question.subject_name} / {question.chapter_name} · {question.timeSpentSeconds}s</p>{question.images.map(url => <img className="question-image" src={url} alt="Question diagram" key={url}/>)}
-    {question.options.map(option => <p className={question.correctOptions.includes(option.label) ? 'correct-key' : ''} key={option.label}><strong>{option.label}.</strong> {option.text}{option.images.map(url => <img className="question-image" src={url} key={url} alt={'Option '+option.label}/>)}{question.correctOptions.includes(option.label) ? ' ✓' : ''}</p>)}
-    <div className="answer-comparison"><p><strong>Your answer</strong><br/>{question.question_type === 'NUMERICAL' ? question.numericalResponse ?? 'Not answered' : question.selectedOptions.join(', ') || 'Not answered'}</p><p><strong>Correct answer</strong><br/>{question.numericalKey ? question.numericalKey.accepted_min === question.numericalKey.accepted_max ? question.numericalKey.accepted_min : question.numericalKey.accepted_min+' to '+question.numericalKey.accepted_max : question.correctOptions.join(', ')}</p></div><h3>Why it works</h3><p className="explanation">{question.explanation_text || 'An explanation has not been added for this question.'}</p></div></details>)}</section>
-    <div className="result-next"><h2>Take the insight into your next attempt.</h2><Link className="button" to={'/app/papers/'+attempt.test_id}>Try this paper again ↗</Link></div></>;
+  return (
+    <>
+      <Link className="back-link" to="/app/history">
+        ← My attempts
+      </Link>
+      <header className="page-heading">
+        <span className="section-label">YOUR ATTEMPT, IN PERSPECTIVE</span>
+        <h1>
+          Every answer
+          <br />
+          <span>tells you something.</span>
+        </h1>
+        <p>
+          {attempt.test_title} ·{" "}
+          {new Date(attempt.submitted_at).toLocaleDateString()}
+        </p>
+      </header>
+      <section className="result-overview">
+        <div className="score-block">
+          <span>YOUR SCORE</span>
+          <strong>
+            {summary.score}
+            <small> / {summary.maximumMarks}</small>
+          </strong>
+          <p>
+            {summary.accuracy === null
+              ? "No questions attempted"
+              : summary.accuracy + "% accuracy on attempted questions"}
+          </p>
+        </div>
+        <div className="result-counts">
+          <div>
+            <strong>{summary.correct}</strong>
+            <span>Correct</span>
+          </div>
+          <div>
+            <strong>{summary.incorrect}</strong>
+            <span>Incorrect</span>
+          </div>
+          <div>
+            <strong>{summary.skipped}</strong>
+            <span>Skipped</span>
+          </div>
+          <p>
+            {Math.floor(summary.timeSeconds / 60)}m {summary.timeSeconds % 60}s
+            recorded on questions
+          </p>
+        </div>
+      </section>
+      <Analytics data={analytics} />
+      <section className="review-section">
+        <div className="section-heading">
+          <h2>Go through your thinking</h2>
+          <label className="compact-label">
+            Show
+            <select
+              aria-label="Show"
+              value={filter}
+              onChange={(event) => setFilter(event.target.value)}
+            >
+              <option value="all">All questions</option>
+              <option value="incorrect">Incorrect</option>
+              <option value="unattempted">Skipped</option>
+              <option value="correct">Correct</option>
+            </select>
+          </label>
+        </div>
+        {questions
+          .filter((question) => filter === "all" || question.outcome === filter)
+          .map((question) => (
+            <details className="review-question" key={question.question_id}>
+              <summary>
+                <span className="review-number">{question.position}</span>
+                <span>{question.question_text}</span>
+                <span className={"badge " + question.outcome}>
+                  {question.outcome === "unattempted"
+                    ? "Skipped"
+                    : question.outcome}
+                </span>
+                <strong>
+                  {question.marksAwarded > 0 ? "+" : ""}
+                  {question.marksAwarded}
+                </strong>
+              </summary>
+              <div className="review-content">
+                <p className="muted">
+                  {question.subject_name} / {question.chapter_name} ·{" "}
+                  {question.timeSpentSeconds}s
+                </p>
+                {question.images.map((url) => (
+                  <img
+                    className="question-image"
+                    src={url}
+                    alt="Question diagram"
+                    key={url}
+                  />
+                ))}
+                {question.options.map((option) => (
+                  <p
+                    className={
+                      question.correctOptions.includes(option.label)
+                        ? "correct-key"
+                        : ""
+                    }
+                    key={option.label}
+                  >
+                    <strong>{option.label}.</strong> {option.text}
+                    {option.images.map((url) => (
+                      <img
+                        className="question-image"
+                        src={url}
+                        key={url}
+                        alt={"Option " + option.label}
+                      />
+                    ))}
+                    {question.correctOptions.includes(option.label) ? " ✓" : ""}
+                  </p>
+                ))}
+                <div className="answer-comparison">
+                  <p>
+                    <strong>Your answer</strong>
+                    <br />
+                    {question.question_type === "NUMERICAL"
+                      ? (question.numericalResponse ?? "Not answered")
+                      : question.selectedOptions.join(", ") || "Not answered"}
+                  </p>
+                  <p>
+                    <strong>Correct answer</strong>
+                    <br />
+                    {question.numericalKey
+                      ? question.numericalKey.accepted_min ===
+                        question.numericalKey.accepted_max
+                        ? question.numericalKey.accepted_min
+                        : question.numericalKey.accepted_min +
+                          " to " +
+                          question.numericalKey.accepted_max
+                      : question.correctOptions.join(", ")}
+                  </p>
+                </div>
+                <h3>Why it works</h3>
+                <p className="explanation">
+                  {question.explanation_text ||
+                    "An explanation has not been added for this question."}
+                </p>
+              </div>
+            </details>
+          ))}
+      </section>
+      <div className="result-next">
+        <h2>Take the insight into your next attempt.</h2>
+        <Link className="button" to={"/app/papers/" + attempt.test_id}>
+          Try this paper again ↗
+        </Link>
+      </div>
+    </>
+  );
 }

@@ -5,20 +5,20 @@ All routes use the `/api` prefix. Except health checks, send
 uses its user ID. A user ID sent in the body never controls ownership.
 Responses are JSON. Errors use `{ "error": "Readable message" }`.
 
-| Method | Path | Purpose |
-|---|---|---|
-| GET | /health | Server status |
-| GET | /health/db | Database/schema readiness |
-| GET | /me | Current profile and Auth email |
-| PATCH | /me | Update display name: `{ "name": "Krishna" }` |
-| GET | /papers?year=2026&search=starter | Up to 100 matching papers |
-| GET | /papers/:id | Paper metadata, count and maximum marks |
-| POST | /papers/:id/attempts | Start a new attempt or resume the active one |
-| GET | /attempts | Latest 100 attempts for this student |
-| GET | /attempts/:id | Metadata, safe questions and saved responses |
-| PUT | /attempts/:id/answers/:questionId | Replace the entire response state |
-| POST | /attempts/:id/submit | Submit once; repeated submission is harmless |
-| GET | /attempts/:id/results | Submitted results, keys and grouped analytics |
+| Method | Path                              | Purpose                                       |
+| ------ | --------------------------------- | --------------------------------------------- |
+| GET    | /health                           | Server status                                 |
+| GET    | /health/db                        | Database/schema readiness                     |
+| GET    | /me                               | Current profile and Auth email                |
+| PATCH  | /me                               | Update display name: `{ "name": "Krishna" }`  |
+| GET    | /papers?year=2026&search=starter  | Up to 100 matching papers                     |
+| GET    | /papers/:id                       | Paper metadata, count and maximum marks       |
+| POST   | /papers/:id/attempts              | Start a new attempt or resume the active one  |
+| GET    | /attempts                         | Latest 100 attempts for this student          |
+| GET    | /attempts/:id                     | Metadata, safe questions and saved responses  |
+| PUT    | /attempts/:id/answers/:questionId | Replace the entire response state             |
+| POST   | /attempts/:id/submit              | Submit once; repeated submission is harmless  |
+| GET    | /attempts/:id/results             | Submitted results, keys and grouped analytics |
 
 ## Answer payload
 
