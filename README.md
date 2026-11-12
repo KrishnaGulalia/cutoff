@@ -3,7 +3,7 @@
 **Make practice count.** A JEE practice app with timed papers, saved attempts,
 server-side scoring and clear question-level feedback.
 
-## What is built
+## Features
 
 - A responsive React interface with Cutoff branding and an interactive warm-up.
 - Supabase email/password signup, login, email confirmation and password reset flows.
@@ -13,9 +13,6 @@ server-side scoring and clear question-level feedback.
 - Server-side expiry, ownership checks and transactions for saving/submitting.
 - Results, answer explanations, subject/chapter/topic/difficulty analytics and history.
 - A validated JSON import command and an optional original demo paper.
-
-The hosted database has all 16 application tables and the six-question starter
-paper. Historical papers, real email delivery checks and deployment are pending.
 
 ## Stack
 
@@ -61,7 +58,7 @@ after changing environment values.
 To create a production build, run `npm run build`, then `npm start`.
 Express serves the built frontend and API from the same origin.
 
-## Find your way around
+## Project structure
 
 ```text
 client/src/
@@ -80,53 +77,20 @@ src/
 prisma/schema.prisma  Prisma models and their database relationships
 supabase/migrations/  Ordered SQL files, applied once
 scripts/              Setup checks, migration and paper import commands
-data/                 Original demo and later verified paper JSON
- tests/               Unit, database integration and browser tests
- docs/                Setup, API, data format and design decisions
+data/                 Practice paper JSON files
+tests/                Unit, database integration and browser tests
+docs/                 Setup, API, data format and design decisions
 ```
-
-## Read the code in this order
-
-1. `src/app.js`: how the Express middleware and routes fit together.
-2. `src/routes/student.routes.js`: each API endpoint and its service call.
-3. `src/services/papers.js`: Prisma queries for listing papers and opening one by ID.
-4. `src/services/answers.js`: one transaction saves the complete answer.
-5. `src/services/scoring.js`: plain JavaScript determines outcomes and totals.
-6. `client/src/pages/PapersPage.jsx`: a page fetching and displaying API data.
-7. `client/src/hooks/useAttempt.js`: local state, the save queue and resume behavior.
-
-When an answer changes, Prisma saves the response and its selected options in
-one transaction. If either write fails, PostgreSQL rolls the whole save back.
-A row lock makes submission wait for an in-flight save.
 
 ## Database model
 
-The 16 normalized application tables follow the AP + DE design:
-users, tests, subjects, chapters, topics, questions, question_topics,
-question_options, correct_options, numerical_keys, question_images,
-option_images, test_questions, attempts, answers and answer_options.
+The 16 application tables cover student profiles, papers, questions, answer keys
+and attempts. Each profile uses the student's Supabase Auth UUID. Express reads
+and writes practice data in the private `cutoff` schema through Prisma.
 
-Two intentional implementation changes are documented in
-[the architecture notes](docs/architecture.md): student IDs are Supabase Auth
-UUIDs, and credentials stay in Auth. Paper source/demo metadata is added by
-migration 004. Application tables live in the private `cutoff` schema, with
-RLS enabled and browser roles denied access. Only Express accesses them.
-The coursework repository is separate; update its documentation deliberately
-when reconciling the final Supabase design.
-
-## Add papers later
-
-Start from [the demo JSON](data/demo-paper.json), following the
-[paper format](docs/paper-format.md). Replace all demo content with verified data
-and set `isDemo` to false for a real paper.
-
-```bash
-npm run data:validate -- data/my-paper.json
-npm run data:import -- data/my-paper.json
-```
-
-Imports are atomic. Re-importing the same title/year/session is rejected.
-The app does not edit a published paper or its keys. Corrections get a new version.
+Saving an answer and its selected options takes one transaction. If submission
+arrives during a save, PostgreSQL waits for the save to finish before closing
+the attempt. See the [architecture notes](docs/architecture.md).
 
 ## Verification
 
@@ -136,19 +100,12 @@ npm run build
 npm run format:check
 ```
 
-[Testing instructions](docs/testing.md) explain the real PostgreSQL integration
-and browser tests. Browser tests inject authentication only inside their isolated
-test server; they do not verify real Supabase email delivery.
+See the [testing guide](docs/testing.md) for the PostgreSQL integration tests and
+browser tests.
 
-## Team and Git workflow
+## Team
 
 - Krishna: frontend and integration.
 - Tahseen: backend and database.
 - Atharv: historical question extraction.
 - Srijan: verification and analytics research.
-
-Work on `main` with small commits and short messages. Keep database credentials
-in the server environment. The browser uses the project URL and publishable key.
-
-See [API reference](docs/api.md), [setup](docs/setup.md), and
-[remaining work](docs/remaining-work.md).
