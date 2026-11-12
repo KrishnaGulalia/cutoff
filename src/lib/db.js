@@ -1,22 +1,12 @@
-const { Pool } = require("pg");
-const { databaseOptions } = require("../config");
-let pool;
-function getPool() {
-  if (!pool) pool = new Pool(databaseOptions());
-  return pool;
+const { PrismaClient } = require("@prisma/client");
+const { databaseUrl } = require("../config");
+
+function createDatabase(url = process.env.DATABASE_URL) {
+  return new PrismaClient({
+    ...(url && { datasourceUrl: databaseUrl(url) }),
+    transactionOptions: { maxWait: 15000, timeout: 30000 },
+  });
 }
-async function transaction(database, work) {
-  const client = await database.connect();
-  try {
-    await client.query("BEGIN");
-    const result = await work(client);
-    await client.query("COMMIT");
-    return result;
-  } catch (error) {
-    await client.query("ROLLBACK");
-    throw error;
-  } finally {
-    client.release();
-  }
-}
-module.exports = { getPool, transaction };
+
+const prisma = createDatabase();
+module.exports = { prisma, createDatabase };

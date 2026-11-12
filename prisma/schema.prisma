@@ -1,0 +1,218 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["cutoff"]
+}
+
+model AnswerOption {
+  attempt_id       BigInt
+  question_id      BigInt
+  option_label     String
+  answers          Answer         @relation(fields: [attempt_id, question_id], references: [attempt_id, question_id], onUpdate: NoAction)
+  question_options QuestionOption @relation(fields: [question_id, option_label], references: [question_id, option_label], onUpdate: NoAction)
+
+  @@id([attempt_id, question_id, option_label])
+  @@map("answer_options")
+  @@schema("cutoff")
+}
+
+model Answer {
+  attempt_id         BigInt
+  question_id        BigInt
+  numerical_response Decimal?       @db.Decimal
+  marked_for_review  Boolean        @default(false)
+  time_spent_seconds Int            @default(0)
+  answer_updated_at  DateTime       @default(now()) @db.Timestamptz(6)
+  answer_options     AnswerOption[]
+  attempts           Attempt        @relation(fields: [attempt_id], references: [attempt_id], onUpdate: NoAction)
+  questions          Question       @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+
+  @@id([attempt_id, question_id])
+  @@map("answers")
+  @@schema("cutoff")
+}
+
+model Attempt {
+  attempt_id     BigInt    @id @default(autoincrement())
+  user_id        String    @db.Uuid
+  test_id        BigInt
+  started_at     DateTime  @default(now()) @db.Timestamptz(6)
+  submitted_at   DateTime? @db.Timestamptz(6)
+  attempt_status String    @default("IN_PROGRESS")
+  answers        Answer[]
+  tests          Test      @relation(fields: [test_id], references: [test_id], onUpdate: NoAction)
+  users          User      @relation(fields: [user_id], references: [user_id], onUpdate: NoAction)
+
+  @@index([user_id, started_at(sort: Desc)], map: "attempts_user_started")
+  @@map("attempts")
+  @@schema("cutoff")
+}
+
+model Chapter {
+  chapter_id   BigInt     @id @default(autoincrement())
+  subject_id   BigInt
+  chapter_name String
+  subjects     Subject    @relation(fields: [subject_id], references: [subject_id], onUpdate: NoAction)
+  questions    Question[]
+  topics       Topic[]
+
+  @@unique([subject_id, chapter_name], map: "chapters_name_per_subject")
+  @@map("chapters")
+  @@schema("cutoff")
+}
+
+model CorrectOption {
+  question_id      BigInt
+  option_label     String
+  question_options QuestionOption @relation(fields: [question_id, option_label], references: [question_id, option_label], onUpdate: NoAction)
+
+  @@id([question_id, option_label])
+  @@map("correct_options")
+  @@schema("cutoff")
+}
+
+model NumericalKey {
+  question_id  BigInt   @id
+  accepted_min Decimal  @db.Decimal
+  accepted_max Decimal  @db.Decimal
+  questions    Question @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+
+  @@map("numerical_keys")
+  @@schema("cutoff")
+}
+
+model OptionImage {
+  question_id      BigInt
+  option_label     String
+  image_position   Int
+  image_url        String
+  question_options QuestionOption @relation(fields: [question_id, option_label], references: [question_id, option_label], onUpdate: NoAction)
+
+  @@id([question_id, option_label, image_position])
+  @@map("option_images")
+  @@schema("cutoff")
+}
+
+model QuestionImage {
+  question_id    BigInt
+  image_position Int
+  image_url      String
+  questions      Question @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+
+  @@id([question_id, image_position])
+  @@map("question_images")
+  @@schema("cutoff")
+}
+
+model QuestionOption {
+  question_id     BigInt
+  option_label    String
+  option_text     String
+  answer_options  AnswerOption[]
+  correct_options CorrectOption?
+  option_images   OptionImage[]
+  questions       Question       @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+
+  @@id([question_id, option_label])
+  @@map("question_options")
+  @@schema("cutoff")
+}
+
+model QuestionTopic {
+  question_id BigInt   @id
+  topic_id    BigInt
+  questions   Question @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+  topics      Topic    @relation(fields: [topic_id], references: [topic_id], onUpdate: NoAction)
+
+  @@map("question_topics")
+  @@schema("cutoff")
+}
+
+model Question {
+  question_id         BigInt           @id @default(autoincrement())
+  chapter_id          BigInt
+  question_text       String
+  question_type       String
+  difficulty          String
+  explanation_text    String?
+  question_created_at DateTime         @default(now()) @db.Timestamptz(6)
+  answers             Answer[]
+  numerical_keys      NumericalKey?
+  question_images     QuestionImage[]
+  question_options    QuestionOption[]
+  question_topics     QuestionTopic?
+  chapters            Chapter          @relation(fields: [chapter_id], references: [chapter_id], onUpdate: NoAction)
+  test_questions      TestQuestion[]
+
+  @@map("questions")
+  @@schema("cutoff")
+}
+
+model Subject {
+  subject_id   BigInt    @id @default(autoincrement())
+  subject_name String    @unique
+  chapters     Chapter[]
+
+  @@map("subjects")
+  @@schema("cutoff")
+}
+
+model TestQuestion {
+  test_id           BigInt
+  question_id       BigInt
+  position          Int
+  marks_correct     Decimal  @default(4) @db.Decimal
+  marks_incorrect   Decimal  @default(-1) @db.Decimal
+  marks_unattempted Decimal  @default(0) @db.Decimal
+  questions         Question @relation(fields: [question_id], references: [question_id], onUpdate: NoAction)
+  tests             Test     @relation(fields: [test_id], references: [test_id], onUpdate: NoAction)
+
+  @@id([test_id, question_id])
+  @@unique([test_id, position], map: "test_questions_position_unique")
+  @@index([question_id], map: "test_questions_question")
+  @@map("test_questions")
+  @@schema("cutoff")
+}
+
+model Test {
+  test_id          BigInt         @id @default(autoincrement())
+  test_title       String
+  exam_year        Int            @db.SmallInt
+  session_label    String
+  duration_minutes Int
+  test_created_at  DateTime       @default(now()) @db.Timestamptz(6)
+  source_reference String         @default("")
+  is_demo          Boolean        @default(false)
+  attempts         Attempt[]
+  test_questions   TestQuestion[]
+
+  @@map("tests")
+  @@schema("cutoff")
+}
+
+model Topic {
+  topic_id        BigInt          @id @default(autoincrement())
+  chapter_id      BigInt
+  topic_name      String
+  question_topics QuestionTopic[]
+  chapters        Chapter         @relation(fields: [chapter_id], references: [chapter_id], onUpdate: NoAction)
+
+  @@unique([chapter_id, topic_name], map: "topics_name_per_chapter")
+  @@map("topics")
+  @@schema("cutoff")
+}
+
+model User {
+  user_id         String    @id @db.Uuid
+  user_name       String
+  user_created_at DateTime  @default(now()) @db.Timestamptz(6)
+  user_updated_at DateTime  @default(now()) @db.Timestamptz(6)
+  attempts        Attempt[]
+
+  @@map("users")
+  @@schema("cutoff")
+}

@@ -17,25 +17,28 @@
     "seed:demo": "node scripts/import-paper.js data/demo-paper.json",
     "check:env": "node scripts/check-env.js",
     "format": "prettier --write src client/src scripts tests docs README.md package.json client/package.json playwright.config.js client/vite.config.js",
-    "format:check": "prettier --check src client/src scripts tests docs README.md package.json client/package.json playwright.config.js client/vite.config.js"
+    "format:check": "prettier --check src client/src scripts tests docs README.md package.json client/package.json playwright.config.js client/vite.config.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "Cutoff JEE practice app",
   "dependencies": {
+    "@prisma/client": "6.19.3",
     "@supabase/supabase-js": "^2.119.1",
     "cors": "^2.8.6",
     "dotenv": "^18.0.9",
     "express": "^5.3.0",
     "express-rate-limit": "^8.7.4",
-    "helmet": "^8.3.0",
-    "pg": "^8.23.1"
+    "helmet": "^8.3.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.65.1",
     "concurrently": "^10.0.7",
+    "pg": "^8.23.1",
     "prettier": "^3.10.1",
+    "prisma": "6.19.3",
     "supertest": "^7.3.2"
   },
   "private": true,
