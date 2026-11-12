@@ -19,7 +19,6 @@ resume, review flags, submission, question review, history and grouped analytics
 Real historical papers, deployment and production email delivery follow later.
 Demo content is original practice material, clearly labelled, never presented as JEE data.
 
-Feature branch: codex/supabase-mvp. Push incremental, short, meaningful commits.
 The old six-model Prisma starter is replaced by versioned SQL migrations.
 The coursework repository remains a separate submission; its Auth differences
 must be reconciled deliberately before final coursework submission.

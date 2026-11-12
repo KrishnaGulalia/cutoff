@@ -147,9 +147,8 @@ test server; they do not verify real Supabase email delivery.
 - Atharv: historical question extraction.
 - Srijan: verification and analytics research.
 
-Work is on `codex/supabase-mvp` with small commits and short messages. Review the
-feature branch before merging to `main`. Never commit `.env`, database passwords,
-or private keys. The browser needs only the project URL and publishable key.
+Work on `main` with small commits and short messages. Keep database credentials
+in the server environment. The browser uses the project URL and publishable key.
 
 See [API reference](docs/api.md), [setup](docs/setup.md), and
 [remaining work](docs/remaining-work.md).
