@@ -6,13 +6,8 @@ export function HistoryPage() {
   return (
     <>
       <header className="page-heading">
-        <span className="section-label">THE WORK YOU’VE PUT IN</span>
-        <h1>
-          Your attempt
-          <br />
-          <span>archive.</span>
-        </h1>
-        <p>Every attempt stays separate. Every return is a new start.</p>
+        <h1>My attempts</h1>
+        <p>Resume a paper or open the analysis for a submitted attempt.</p>
       </header>
       {history.loading ? (
         <Loading />
@@ -20,7 +15,7 @@ export function HistoryPage() {
         <ErrorState message={history.error} retry={history.reload} />
       ) : !history.data.length ? (
         <EmptyState
-          title="Your first page is still blank."
+          title="No attempts yet"
           description="Start a practice paper and your attempts will appear here."
           to="/app/papers"
           action="Explore papers"
@@ -52,7 +47,7 @@ export function HistoryPage() {
                 }
               >
                 {item.attempt_status === "SUBMITTED"
-                  ? "View results ↗"
+                  ? "View analysis ↗"
                   : "Resume →"}
               </span>
             </Link>

@@ -26,26 +26,19 @@ export function DashboardPage() {
   return (
     <>
       <header className="page-heading">
-        <span className="section-label">YOUR OVERVIEW</span>
         <h1>
-          Good to see you,
-          <br />
-          <span>{profile.data.user_name.split(" ")[0]}.</span>
+          Good to see you, <span>{profile.data.user_name.split(" ")[0]}.</span>
         </h1>
-        <p>Let’s give today’s practice a little direction.</p>
       </header>
       <section className="dashboard-banner">
         <div>
-          <span className="section-label">THE NEXT STEP</span>
           <h2>
-            {active.length
-              ? "You have unfinished business."
-              : "A fresh paper. A fresh perspective."}
+            {active.length ? "Continue your attempt" : "Start a practice paper"}
           </h2>
           <p>
             {active.length
               ? "Your answers are saved. Pick up your active attempt."
-              : "Choose a paper, find your rhythm, and see where you stand."}
+              : "Choose a timed paper and review your answers after submission."}
           </p>
           <Link
             className="button lime"
@@ -79,7 +72,7 @@ export function DashboardPage() {
       </section>
       <section className="recent-section">
         <div className="section-heading">
-          <h2>Recently on your desk</h2>
+          <h2>Recent attempts</h2>
           <Link to="/app/history">All attempts ↗</Link>
         </div>
         {!attempts.length ? (
@@ -113,7 +106,7 @@ export function DashboardPage() {
                 }
               >
                 {item.attempt_status === "SUBMITTED"
-                  ? "View results ↗"
+                  ? "View analysis ↗"
                   : "Resume →"}
               </span>
             </Link>

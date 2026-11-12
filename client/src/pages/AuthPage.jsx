@@ -52,15 +52,12 @@ export function AuthPage({ mode = "login" }) {
       <aside className="auth-story">
         <Brand />
         <div>
-          <span className="edition">MAKE PRACTICE COUNT</span>
           <h1>
-            A little more
+            JEE Main
             <br />
-            clarity.
-            <br />
-            <em>Every attempt.</em>
+            <em>practice.</em>
           </h1>
-          <p>Your papers, your progress, your next step.</p>
+          <p>Timed papers, saved attempts and a breakdown of every answer.</p>
         </div>
         <span className="auth-foot">Physics / Chemistry / Mathematics</span>
       </aside>
@@ -69,14 +66,11 @@ export function AuthPage({ mode = "login" }) {
           ← Back to Cutoff
         </Link>
         <div className="auth-form-wrap">
-          <span className="section-label">
-            {signup ? "YOUR STARTING POINT" : "PICK UP WHERE YOU LEFT OFF"}
-          </span>
-          <h2>{signup ? "Make room for progress." : "Welcome back."}</h2>
+          <h2>{signup ? "Create your account" : "Sign in to Cutoff"}</h2>
           <p>
             {signup
-              ? "Create your free practice account."
-              : "Your next good attempt is waiting."}
+              ? "Save your attempts and review your results."
+              : "Continue with your email and password."}
           </p>
           <form onSubmit={submit}>
             {signup && (

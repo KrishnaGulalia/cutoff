@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight } from "@phosphor-icons/react";
+import { ArrowUpRight } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Brand } from "../components/Brand";
 import { useAuth } from "../context/AuthContext";
@@ -7,51 +7,54 @@ export function LandingPage() {
   const { session } = useAuth();
   const [choice, setChoice] = useState("");
   return (
-    <div className="landing">
+    <div className="landing landing-study">
       <header className="public-nav">
         <Brand />
         <nav>
-          <a href="#how">The approach</a>
+          <a href="#analysis">Test analysis</a>
           <Link to={session ? "/app" : "/login"}>
-            Sign in <ArrowUpRight size={17} />
+            {session ? "My workspace" : "Sign in"} <ArrowUpRight size={16} />
           </Link>
         </nav>
       </header>
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <div className="edition">JEE PRACTICE, WITH PERSPECTIVE</div>
+            <div className="edition">JEE MAIN PRACTICE</div>
             <h1>
               Practice with
               <br />a <span className="highlight-word">point.</span>
             </h1>
             <p>
-              Turn every paper into a clearer picture of what to work on next.
+              Take a timed paper. See where your marks came from and which
+              questions took your time.
             </p>
             <Link className="button lime" to={session ? "/app" : "/signup"}>
-              {session ? "Open your workspace" : "Find your starting point"}
-              <ArrowUpRight size={21} />
+              {session ? "Open workspace" : "Start practising"}{" "}
+              <ArrowUpRight size={19} />
             </Link>
           </div>
           <div className="practice-preview">
             <div className="preview-top">
-              <span>THE WARM-UP</span>
-              <span>01 / 01</span>
+              <span>Physics warm-up</span>
+              <span>Kinematics</span>
             </div>
             <div className="preview-body">
-              <span className="subject-tag">PHYSICS · MOTION</span>
+              <div className="motion-strip" aria-hidden="true">
+                <span>0 m</span>
+                <i />
+                <span>20 m</span>
+              </div>
               <h2>
-                20 metres.
-                <br />4 seconds.
-                <br />
-                What’s the speed?
+                A particle travels 20 metres in 4 seconds. What is its average
+                speed?
               </h2>
               <div className="preview-options">
                 {["4 m/s", "5 m/s", "8 m/s", "80 m/s"].map((label, i) => (
                   <button
                     key={label}
-                    className={choice === label ? "chosen" : ""}
                     aria-pressed={choice === label}
+                    className={choice === label ? "chosen" : ""}
                     onClick={() => setChoice(label)}
                   >
                     <span>{String.fromCharCode(65 + i)}</span>
@@ -61,74 +64,40 @@ export function LandingPage() {
               </div>
               <p className="preview-feedback" aria-live="polite">
                 {!choice
-                  ? "A tiny original practice question. Give it a go."
+                  ? "Choose an answer to check your working."
                   : choice === "5 m/s"
-                    ? "Exactly. Speed = distance ÷ time. You’re in motion."
-                    : "Almost. Divide the distance by the time. Try again."}
+                    ? "Correct. 20 m ÷ 4 s = 5 m/s."
+                    : "Divide the distance by the time and try again."}
               </p>
             </div>
-            <div className="preview-footer">
-              <span>Small steps. Clearer thinking.</span>
-              <ArrowUpRight size={22} />
-            </div>
           </div>
         </section>
-        <section className="approach" id="how">
+        <section id="analysis" className="landing-analysis">
+          <h2>After the test</h2>
           <div>
-            <span className="section-label">A BETTER PRACTICE LOOP</span>
-            <h2>
-              Finish the paper.
-              <br />
-              Keep the insight.
-            </h2>
+            <h3>Score breakdown</h3>
+            <p>
+              Compare marks and accuracy across subjects, chapters and
+              difficulty levels.
+            </p>
           </div>
-          <div className="approach-list">
-            <article>
-              <span>01</span>
-              <div>
-                <h3>Get into test mode.</h3>
-                <p>
-                  A focused workspace, a real timer, and your place saved as you
-                  go.
-                </p>
-              </div>
-            </article>
-            <article>
-              <span>02</span>
-              <div>
-                <h3>Go beyond the total.</h3>
-                <p>
-                  See accuracy, time spent, and performance across subjects and
-                  chapters.
-                </p>
-              </div>
-            </article>
-            <article>
-              <span>03</span>
-              <div>
-                <h3>Know your next move.</h3>
-                <p>
-                  Review each answer. Understand the mistakes. Come back for
-                  another attempt.
-                </p>
-              </div>
-            </article>
+          <div>
+            <h3>Time analysis</h3>
+            <p>
+              Find the questions that took the longest and open their solutions.
+            </p>
           </div>
-        </section>
-        <section className="closing">
-          <h2>
-            Your next attempt
-            <br />
-            starts here.
-          </h2>
-          <Link className="button" to={session ? "/app/papers" : "/signup"}>
-            Let’s make it count <ArrowRight size={20} />
-          </Link>
+          <div>
+            <h3>Question review</h3>
+            <p>
+              Revisit mistakes, skipped questions and anything you marked for
+              review.
+            </p>
+          </div>
         </section>
       </main>
       <footer className="public-footer">
         <Brand />
-        <p>Built for the work between attempts.</p>
         <span>JEE Main practice</span>
       </footer>
     </div>

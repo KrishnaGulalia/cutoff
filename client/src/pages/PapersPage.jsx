@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Clock } from "@phosphor-icons/react";
+import { ArrowUpRight, BookOpen, Clock } from "@phosphor-icons/react";
 import { useResource } from "../hooks/useResource";
 import { Loading, ErrorState, EmptyState } from "../components/States";
 export function PapersPage() {
@@ -20,13 +20,8 @@ export function PapersPage() {
   return (
     <>
       <header className="page-heading">
-        <span className="section-label">THE PRACTICE LIBRARY</span>
-        <h1>
-          Find your next
-          <br />
-          <span>challenge.</span>
-        </h1>
-        <p>Take a paper at your pace. Learn from it at your depth.</p>
+        <h1>Practice papers</h1>
+        <p>Choose a paper to see its duration and marking scheme.</p>
       </header>
       <form className="filter-bar" onSubmit={search}>
         <label>
@@ -51,19 +46,19 @@ export function PapersPage() {
         <ErrorState message={papers.error} retry={papers.reload} />
       ) : !papers.data.length ? (
         <EmptyState
-          title="A little space for what’s next."
-          description="No papers match this view yet. Try another search or come back as the library grows."
+          title="No papers found"
+          description="Try a different title or exam year."
         />
       ) : (
         <div className="paper-list">
-          {papers.data.map((paper, index) => (
+          {papers.data.map((paper) => (
             <Link
               className="paper-card"
               to={"/app/papers/" + paper.test_id}
               key={paper.test_id}
             >
               <div className="paper-card-number">
-                {String(index + 1).padStart(2, "0")}
+                <BookOpen size={24} aria-hidden="true" />
               </div>
               <div className="paper-card-main">
                 <div className="paper-meta">

@@ -32,9 +32,7 @@ export function ProfilePage() {
   return (
     <>
       <header className="page-heading">
-        <span className="section-label">A SPACE THAT’S YOURS</span>
-        <h1>Your account.</h1>
-        <p>The essentials, all in one place.</p>
+        <h1>Account</h1>
       </header>
       <section className="profile-panel">
         <form onSubmit={save}>

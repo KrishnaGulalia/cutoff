@@ -1,13 +1,13 @@
 :root {
   font-family: "Manrope Variable", Manrope, system-ui, sans-serif;
-  color: #192b45;
+  color: var(--ink);
   background: #f6f7f9;
   font-synthesis: none;
-  --ink: #192b45;
-  --blue: #315bff;
-  --lime: #d6ed91;
-  --muted: #687587;
-  --line: #dfe4eb;
+  --ink: #183331;
+  --blue: #19675b;
+  --lime: #b9efd0;
+  --muted: #556865;
+  --line: #dbe4e0;
   --paper: #fff;
   --radius: 16px;
 }
@@ -146,19 +146,10 @@ img {
   width: max-content;
 }
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  background: var(--blue);
-  color: white;
-  border-radius: 8px;
-  font-size: 23px;
-  letter-spacing: -3px;
-  padding-right: 3px;
-}
-.brand-period {
-  color: var(--blue);
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
 }
 .section-label,
 .edition {
@@ -314,7 +305,7 @@ img {
 .preview-options button:hover,
 .preview-options button.chosen {
   border-color: var(--blue);
-  background: #edf1ff;
+  background: #e5f1ea;
 }
 .preview-feedback {
   min-height: 38px;
@@ -412,13 +403,6 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.auth-story .brand-mark {
-  background: var(--lime);
-  color: var(--ink);
-}
-.auth-story .brand-period {
-  color: var(--lime);
 }
 .auth-story h1 {
   font-size: clamp(42px, 4.4vw, 66px);
@@ -575,7 +559,7 @@ form label {
   border-radius: 8px;
 }
 .sidebar nav a.active {
-  background: #edf1ff;
+  background: #e5f1ea;
   color: var(--blue);
 }
 .sidebar nav a:hover {
@@ -756,7 +740,7 @@ form label {
   display: inline-block;
   width: max-content;
   white-space: nowrap;
-  background: #edf1ff;
+  background: #e5f1ea;
   color: var(--blue);
   padding: 7px 10px;
   border-radius: 5px;
@@ -1098,7 +1082,7 @@ form label {
   margin: 0;
 }
 .answer-option.selected {
-  background: #f0f3ff;
+  background: #edf5f0;
   border-color: var(--blue);
 }
 .option-letter {
@@ -1181,8 +1165,8 @@ form label {
 }
 .palette-grid .visited,
 .palette-legend .visited {
-  background: #edf1ff;
-  border-color: #b7c5ff;
+  background: #e5f1ea;
+  border-color: #a6cbbb;
   color: var(--blue);
 }
 .palette-grid .current {
