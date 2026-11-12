@@ -1,3 +1,4 @@
+const { createDatabase } = require("../../src/lib/db");
 const { Pool } = require("pg");
 const { createApp } = require("../../src/app");
 const { migrate } = require("../../scripts/migrate");
@@ -13,6 +14,7 @@ if (
   throw new Error("Browser tests require a dedicated local test DB.");
 async function main() {
   const database = new Pool({ connectionString: url });
+  const prisma = createDatabase(url);
   await database.query(
     "CREATE SCHEMA IF NOT EXISTS auth; CREATE TABLE IF NOT EXISTS auth.users(id UUID PRIMARY KEY)",
   );
@@ -20,7 +22,7 @@ async function main() {
     await database.query(
       `DO $$ BEGIN CREATE ROLE ${role}; EXCEPTION WHEN duplicate_object THEN NULL; END $$`,
     );
-  await migrate(database);
+  await migrate(url);
   await database.query(
     "INSERT INTO auth.users(id) VALUES ($1) ON CONFLICT DO NOTHING",
     [user.id],
@@ -34,9 +36,9 @@ async function main() {
       )
     ).rowCount
   )
-    await importPaper(database, demo);
+    await importPaper(prisma, demo);
   const app = createApp({
-    database,
+    database: prisma,
     verifyToken: async (value) => {
       if (value !== token) throw new AppError(401, "Invalid test token");
       return user;

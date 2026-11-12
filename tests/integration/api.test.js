@@ -1,3 +1,4 @@
+const { createDatabase } = require("../../src/lib/db");
 const { test, before, after } = require("node:test");
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
@@ -15,6 +16,7 @@ if (
 )
   throw new Error("Use a dedicated local cutoff_test database.");
 const database = new Pool({ connectionString: url });
+const prisma = createDatabase(url);
 const first = crypto.randomUUID(),
   second = crypto.randomUUID();
 let app, paper, attempt, questions;
@@ -31,13 +33,13 @@ before(async () => {
     await database.query(
       `DO $$ BEGIN CREATE ROLE ${role}; EXCEPTION WHEN duplicate_object THEN NULL; END $$`,
     );
-  await migrate(database);
+  await migrate(url);
   await database.query("INSERT INTO auth.users VALUES ($1),($2)", [
     first,
     second,
   ]);
   app = createApp({
-    database,
+    database: prisma,
     verifyToken: async (token) => {
       if (!["first", "second"].includes(token))
         throw new AppError(401, "Invalid session.");
@@ -52,9 +54,12 @@ before(async () => {
   await call("get", "/me", "second");
   const fixture = structuredClone(require("../../data/demo-paper.json"));
   fixture.title += " " + crypto.randomUUID();
-  paper = await importPaper(database, fixture);
+  paper = await importPaper(prisma, fixture);
 });
-after(async () => database.end());
+after(async () => {
+  await prisma.$disconnect();
+  await database.end();
+});
 test("real database API journey", async (t) => {
   await t.test("missing and invalid sessions are rejected", async () => {
     assert.equal((await request(app).get("/api/papers")).status, 401);

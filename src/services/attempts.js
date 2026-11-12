@@ -1,93 +1,69 @@
-const { transaction } = require("../lib/db");
 const { AppError } = require("../lib/errors");
 const { getPaper } = require("./papers");
 const { getQuestions } = require("./questions");
-async function ownedAttempt(client, userId, attemptId) {
-  const result = await client.query(
-    `SELECT attempt.*, paper.test_title, paper.duration_minutes,
-    attempt.started_at + paper.duration_minutes * INTERVAL '1 minute' AS expires_at,
+async function ownedAttempt(tx, userId, attemptId) {
+  // Lock first so a submit waits for an answer save. Use the database clock for the deadline.
+  const rows = await tx.$queryRaw`SELECT a.*, p.test_title, p.duration_minutes,
+    a.started_at + p.duration_minutes * interval '1 minute' AS expires_at,
     clock_timestamp() AS server_now,
-    clock_timestamp() >= attempt.started_at + paper.duration_minutes * INTERVAL '1 minute' AS expired
-    FROM cutoff.attempts AS attempt JOIN cutoff.tests AS paper ON paper.test_id = attempt.test_id
-    WHERE attempt.user_id = $1 AND attempt.attempt_id = $2 FOR UPDATE OF attempt`,
-    [userId, attemptId],
-  );
-  if (!result.rowCount) throw new AppError(404, "Attempt not found.");
-  return result.rows[0];
+    clock_timestamp() >= a.started_at + p.duration_minutes * interval '1 minute' AS expired
+    FROM cutoff.attempts a JOIN cutoff.tests p ON p.test_id = a.test_id
+    WHERE a.user_id = ${userId}::uuid AND a.attempt_id = ${BigInt(attemptId)} FOR UPDATE OF a`;
+  if (!rows.length) throw new AppError(404, "Attempt not found.");
+  return rows[0];
 }
-async function closeAttempt(client, attempt) {
+async function closeAttempt(tx, attempt) {
   if (attempt.attempt_status === "SUBMITTED") return attempt;
-  const result = await client.query(
-    `UPDATE cutoff.attempts SET attempt_status = 'SUBMITTED',
-    submitted_at = clock_timestamp() WHERE attempt_id = $1 RETURNING submitted_at`,
-    [attempt.attempt_id],
-  );
+  const [updated] =
+    await tx.$queryRaw`UPDATE cutoff.attempts SET attempt_status='SUBMITTED',
+    submitted_at=clock_timestamp() WHERE attempt_id=${attempt.attempt_id} RETURNING submitted_at`;
   return {
     ...attempt,
     attempt_status: "SUBMITTED",
-    submitted_at: result.rows[0].submitted_at,
+    submitted_at: updated.submitted_at,
   };
 }
-async function startAttempt(database, userId, testId) {
-  return transaction(database, async (client) => {
-    await getPaper(client, testId);
-    // Lock the student to make two simultaneous start requests share one attempt.
-    await client.query(
-      "SELECT user_id FROM cutoff.users WHERE user_id = $1 FOR UPDATE",
-      [userId],
-    );
-    const active = await client.query(
-      `SELECT attempt_id FROM cutoff.attempts
-      WHERE user_id = $1 AND test_id = $2 AND attempt_status = 'IN_PROGRESS'`,
-      [userId, testId],
-    );
-    if (active.rowCount) {
-      const attempt = await ownedAttempt(
-        client,
-        userId,
-        active.rows[0].attempt_id,
-      );
+async function startAttempt(db, userId, testId) {
+  return db.$transaction(async (tx) => {
+    await getPaper(tx, testId);
+    await tx.$queryRaw`SELECT user_id FROM cutoff.users WHERE user_id=${userId}::uuid FOR UPDATE`;
+    const where = { user_id: userId, test_id: BigInt(testId) };
+    const active = await tx.attempt.findFirst({
+      where: { ...where, attempt_status: "IN_PROGRESS" },
+    });
+    if (active) {
+      const attempt = await ownedAttempt(tx, userId, active.attempt_id);
       if (!attempt.expired) return attempt;
-      await closeAttempt(client, attempt);
+      await closeAttempt(tx, attempt);
     }
-    const created = await client.query(
-      "INSERT INTO cutoff.attempts(user_id, test_id) VALUES ($1, $2) RETURNING attempt_id",
-      [userId, testId],
-    );
-    return ownedAttempt(client, userId, created.rows[0].attempt_id);
+    const created = await tx.attempt.create({ data: where });
+    return ownedAttempt(tx, userId, created.attempt_id);
   });
 }
-async function getAttempt(database, userId, attemptId) {
-  return transaction(database, async (client) => {
-    let attempt = await ownedAttempt(client, userId, attemptId);
-    if (attempt.expired) attempt = await closeAttempt(client, attempt);
-    const questions = await getQuestions(client, attempt.test_id);
-    const answers = (
-      await client.query("SELECT * FROM cutoff.answers WHERE attempt_id = $1", [
-        attemptId,
-      ])
-    ).rows;
-    const selections = (
-      await client.query(
-        "SELECT * FROM cutoff.answer_options WHERE attempt_id = $1 ORDER BY option_label",
-        [attemptId],
-      )
-    ).rows;
+async function readAnswers(tx, attemptId) {
+  const rows = await tx.answer.findMany({
+    where: { attempt_id: BigInt(attemptId) },
+    include: { answer_options: { orderBy: { option_label: "asc" } } },
+  });
+  return rows.map(({ answer_options, ...answer }) => ({
+    ...answer,
+    selectedOptions: answer_options.map((option) => option.option_label),
+  }));
+}
+async function getAttempt(db, userId, attemptId) {
+  return db.$transaction(async (tx) => {
+    let attempt = await ownedAttempt(tx, userId, attemptId);
+    if (attempt.expired) attempt = await closeAttempt(tx, attempt);
     return {
       attempt,
-      questions,
-      answers: answers.map((answer) => ({
-        ...answer,
-        selectedOptions: selections
-          .filter((option) => option.question_id === answer.question_id)
-          .map((option) => option.option_label),
-      })),
+      questions: await getQuestions(tx, attempt.test_id),
+      answers: await readAnswers(tx, attemptId),
     };
   });
 }
-async function submitAttempt(database, userId, attemptId) {
-  return transaction(database, async (client) =>
-    closeAttempt(client, await ownedAttempt(client, userId, attemptId)),
+async function submitAttempt(db, userId, attemptId) {
+  return db.$transaction(async (tx) =>
+    closeAttempt(tx, await ownedAttempt(tx, userId, attemptId)),
   );
 }
 module.exports = {
@@ -96,4 +72,5 @@ module.exports = {
   startAttempt,
   getAttempt,
   submitAttempt,
+  readAnswers,
 };

@@ -13,22 +13,20 @@ const { getHistory } = require("../services/history");
 function studentRoutes(database) {
   const router = Router();
   router.get("/me", async (req, res) => {
-    const profile = (
-      await database.query("SELECT * FROM cutoff.users WHERE user_id = $1", [
-        req.user.id,
-      ])
-    ).rows[0];
+    const profile = await database.user.findUnique({
+      where: { user_id: req.user.id },
+    });
     res.json({ ...profile, email: req.user.email });
   });
   router.patch("/me", async (req, res) => {
     const name = req.body?.name;
     if (typeof name !== "string" || !name.trim() || name.trim().length > 80)
       throw new AppError(400, "Use a name between 1 and 80 characters.");
-    const result = await database.query(
-      "UPDATE cutoff.users SET user_name = $2 WHERE user_id = $1 RETURNING *",
-      [req.user.id, name.trim()],
-    );
-    res.json(result.rows[0]);
+    const profile = await database.user.update({
+      where: { user_id: req.user.id },
+      data: { user_name: name.trim() },
+    });
+    res.json(profile);
   });
   router.get("/papers", async (req, res) =>
     res.json(await listPapers(database, req.query)),

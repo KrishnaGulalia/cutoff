@@ -1,9 +1,11 @@
 const { PrismaClient } = require("@prisma/client");
-const { databaseUrl } = require("../config");
+const { PrismaPg } = require("@prisma/adapter-pg");
+const { connectionOptions } = require("../config");
 
 function createDatabase(url = process.env.DATABASE_URL) {
+  const adapter = new PrismaPg(connectionOptions(url));
   return new PrismaClient({
-    ...(url && { datasourceUrl: databaseUrl(url) }),
+    adapter,
     transactionOptions: { maxWait: 15000, timeout: 30000 },
   });
 }

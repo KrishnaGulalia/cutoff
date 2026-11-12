@@ -1,14 +1,28 @@
 require("dotenv").config({ quiet: true });
-const path = require("node:path");
+const fs = require("node:fs");
 
-function databaseUrl(value) {
+function connectionOptions(value) {
+  if (!value) return {};
   const url = new URL(value);
-  if (!["localhost", "127.0.0.1", "[::1]"].includes(url.hostname)) {
-    url.searchParams.set("sslmode", "require");
-    url.searchParams.set("sslaccept", "strict");
-    if (process.env.DATABASE_CA_FILE)
-      url.searchParams.set("sslcert", path.resolve(process.env.DATABASE_CA_FILE));
-  }
-  return url.toString();
+  const local = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
+  const ssl = local ? false : { rejectUnauthorized: true };
+  if (!local && process.env.DATABASE_CA_FILE)
+    ssl.ca = fs.readFileSync(process.env.DATABASE_CA_FILE, "utf8");
+  // The adapter receives the TLS settings above, including the project's CA.
+  for (const key of [
+    "sslmode",
+    "sslcert",
+    "sslkey",
+    "sslrootcert",
+    "ssl",
+    "pgbouncer",
+  ])
+    url.searchParams.delete(key);
+  return {
+    connectionString: url.toString(),
+    ssl,
+    max: 10,
+    connectionTimeoutMillis: 8000,
+  };
 }
-module.exports = { databaseUrl };
+module.exports = { connectionOptions };

@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const { rateLimit } = require("express-rate-limit");
 const path = require("node:path");
 const fs = require("node:fs");
-const { getPool } = require("./lib/db");
+const { prisma } = require("./lib/db");
 const { verifyToken } = require("./lib/supabase");
 const { requireAuth } = require("./middleware/auth");
 const { errorHandler } = require("./lib/errors");
@@ -12,16 +12,24 @@ const { studentRoutes } = require("./routes/student.routes");
 const { healthRoutes } = require("./routes/health.routes");
 function createApp(options = {}) {
   const app = express();
-  const database = options.database || {
-    query: (...args) => getPool().query(...args),
-    connect: () => getPool().connect(),
-  };
+  const database = options.database || prisma;
+  // The API sends PostgreSQL bigint IDs as strings so browsers preserve precision.
+  app.set("json replacer", (key, value) =>
+    typeof value === "bigint" ? value.toString() : value,
+  );
   app.disable("x-powered-by");
+  // A host can specify the address or subnet of its reverse proxy.
+  if (process.env.TRUST_PROXY) app.set("trust proxy", process.env.TRUST_PROXY);
+  const authOrigin = process.env.SUPABASE_URL
+    ? new URL(process.env.SUPABASE_URL).origin
+    : null;
   app.use(
     helmet({
       contentSecurityPolicy: {
         directives: {
-          "connect-src": ["'self'", "https://*.supabase.co"],
+          "connect-src": authOrigin ? ["'self'", authOrigin] : ["'self'"],
+          "upgrade-insecure-requests":
+            process.env.NODE_ENV === "production" ? [] : null,
           "img-src": ["'self'", "https:", "data:"],
         },
       },

@@ -4,7 +4,7 @@ function healthRoutes(database) {
   router.get("/", (req, res) => res.json({ status: "ok", app: "Cutoff" }));
   router.get("/db", async (req, res) => {
     try {
-      await database.query("SELECT 1 FROM cutoff.tests LIMIT 1");
+      await database.test.findFirst({ select: { test_id: true } });
       res.json({ status: "ok" });
     } catch {
       res.status(503).json({
