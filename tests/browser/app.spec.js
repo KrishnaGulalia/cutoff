@@ -14,9 +14,7 @@ test("public pages work on desktop and mobile", async ({ page }) => {
     page.getByRole("heading", { name: "Practice with a point." }),
   ).toBeVisible();
   await page.getByRole("button", { name: "B 5 m/s" }).click();
-  await expect(
-    page.getByText("Exactly. Speed = distance ÷ time. You’re in motion."),
-  ).toBeVisible();
+  await expect(page.getByText("Correct. 20 m ÷ 4 s = 5 m/s.")).toBeVisible();
   await page.screenshot({
     path: "test-results/landing-desktop.png",
     fullPage: true,
@@ -31,7 +29,7 @@ test("public pages work on desktop and mobile", async ({ page }) => {
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
-  await page.getByRole("link", { name: "Find your starting point" }).click();
+  await page.getByRole("link", { name: "Start practising" }).click();
   await expect(page.getByLabel("Your name")).toBeVisible();
   await page.screenshot({
     path: "test-results/signup-mobile.png",
@@ -53,7 +51,7 @@ test("student completes an attempt and reviews it", async ({ page }) => {
     .getByRole("link", { name: "Practice papers", exact: true })
     .click();
   await expect(
-    page.getByRole("heading", { name: "Find your next challenge." }),
+    page.getByRole("heading", { name: "Practice papers" }),
   ).toBeVisible();
   await page
     .getByRole("link")
@@ -70,6 +68,7 @@ test("student completes an attempt and reviews it", async ({ page }) => {
       name: "A particle travels 20 m in 4 s at a constant speed. What is its speed?",
     }),
   ).toBeVisible();
+  await page.clock.setFixedTime(new Date(Date.now() + 75000));
   await page.getByRole("radio", { name: "B 5 m/s" }).check();
   await expect(
     page.getByText("All changes saved", { exact: true }),
@@ -105,12 +104,15 @@ test("student completes an attempt and reviews it", async ({ page }) => {
     .click();
   await page.getByRole("button", { name: "Submit now", exact: true }).click();
   await expect(
-    page.getByRole("heading", { name: "Every answer tells you something." }),
+    page.getByRole("heading", { name: "Test analysis" }),
   ).toBeVisible();
   await expect(
     page.getByText("100% accuracy on attempted questions"),
   ).toBeVisible();
   await page.getByLabel("Group by").selectOption("chapters");
+  await expect(
+    page.getByRole("columnheader", { name: "Accuracy" }),
+  ).toBeVisible();
   await page.screenshot({
     path: "test-results/results-mobile.png",
     fullPage: true,
@@ -120,6 +122,43 @@ test("student completes an attempt and reviews it", async ({ page }) => {
     path: "test-results/results-desktop.png",
     fullPage: true,
   });
+  await page.getByRole("link", { name: "Time analysis", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Time by subject" }),
+  ).toBeVisible();
+  await expect(page.getByRole("meter")).toHaveCount(3);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".time-list a").first()).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/time-mobile.png",
+    fullPage: true,
+  });
+  await page.locator(".time-list a").first().click();
+  await expect(page.locator("details[open] .review-number")).toHaveText("Q1");
+  await page
+    .getByRole("link", { name: "Overview", exact: true })
+    .last()
+    .click();
+  await page
+    .getByRole("link", { name: "Review question 5, correct", exact: true })
+    .click();
+  await expect(page.locator("details[open] .review-number")).toHaveText("Q5");
+  await page.screenshot({
+    path: "test-results/review-mobile.png",
+    fullPage: true,
+  });
+  await page.getByLabel("Show", { exact: true }).selectOption("flagged");
+  await expect(page.locator(".review-question")).toHaveCount(1);
+  await page.getByLabel("Subject", { exact: true }).selectOption("Physics");
+  await expect(
+    page.getByText("No questions match these filters."),
+  ).toBeVisible();
+  await page.getByLabel("Subject", { exact: true }).selectOption("all");
   await page
     .getByRole("combobox", { name: "Show", exact: true })
     .selectOption("correct");
@@ -170,7 +209,7 @@ test("failed saves keep the response and support retry", async ({ page }) => {
     .click();
   await page.getByRole("button", { name: "Submit now", exact: true }).click();
   await expect(
-    page.getByRole("heading", { name: "Every answer tells you something." }),
+    page.getByRole("heading", { name: "Test analysis" }),
   ).toBeVisible();
 });
 
@@ -250,4 +289,32 @@ test("sign-in returns a student to their requested paper library", async ({
   await expect(
     page.getByRole("heading", { name: "Cutoff starter practice", exact: true }),
   ).toBeVisible();
+});
+
+test("analysis handles a negative score and an unanswered retake", async ({
+  page,
+}) => {
+  await login(page);
+  await page.goto("/app/papers");
+  await page
+    .getByRole("heading", { name: "Cutoff starter practice", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Start or resume" }).click();
+  await page.getByRole("radio", { name: "A 4 m/s", exact: true }).check();
+  await page
+    .getByRole("button", { name: "Submit attempt", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Submit now", exact: true }).click();
+  await expect(page.getByText("1 mark deducted")).toBeVisible();
+  await page.getByRole("link", { name: /Review mistakes/ }).click();
+  await expect(page.locator(".review-question")).toHaveCount(1);
+  await page.getByRole("link", { name: "Retake paper" }).click();
+  await page.getByRole("button", { name: "Start or resume" }).click();
+  await page
+    .getByRole("button", { name: "Submit attempt", exact: true })
+    .click();
+  await page.getByRole("button", { name: "Submit now", exact: true }).click();
+  await expect(page.getByText("No questions attempted")).toBeVisible();
+  await page.getByRole("link", { name: "Review 6 skipped questions" }).click();
+  await expect(page.locator(".review-question")).toHaveCount(6);
 });

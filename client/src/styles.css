@@ -1232,67 +1232,6 @@ dialog p {
   margin-top: 25px;
 }
 /* Results: numeric hierarchy and readable review, without invented metrics. */
-.result-overview {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 42px;
-}
-.score-block {
-  background: var(--ink);
-  color: white;
-  padding: 30px 36px;
-}
-.score-block > span {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.13em;
-  color: var(--lime);
-}
-.score-block > strong {
-  font-size: 66px;
-  display: block;
-  letter-spacing: -0.06em;
-  line-height: 1.4;
-}
-.score-block small {
-  font-size: 24px;
-  color: #aebbd0;
-  letter-spacing: -0.03em;
-}
-.score-block p {
-  color: #c2cddb;
-  font-size: 11px;
-  margin: 0;
-}
-.result-counts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-content: center;
-  gap: 24px 12px;
-  padding: 30px;
-}
-.result-counts div {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-.result-counts strong {
-  font-size: 32px;
-  letter-spacing: -0.04em;
-}
-.result-counts span {
-  font-size: 11px;
-  color: var(--muted);
-}
-.result-counts p {
-  grid-column: 1/-1;
-  font-size: 11px;
-  margin: 0;
-}
 .compact-label {
   flex-direction: row;
   align-items: center;
@@ -1396,18 +1335,4 @@ tbody tr:last-child > * {
 }
 .explanation {
   white-space: pre-wrap;
-}
-.result-next {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  margin-top: 40px;
-  padding-top: 25px;
-  border-top: 1px solid var(--line);
-}
-.result-next h2 {
-  font-size: 20px;
-  max-width: 320px;
-  margin: 0;
 }

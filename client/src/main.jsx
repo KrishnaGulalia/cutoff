@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@fontsource-variable/manrope";
 import "./styles.css";
 import "./responsive.css";
+import "./report.css";
 import App from "./App";
 import { AuthProvider } from "./context/AuthContext";
 const router = createBrowserRouter([

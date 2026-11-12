@@ -4,7 +4,7 @@ export function Analytics({ data }) {
   return (
     <section className="analytics-section">
       <div className="section-heading">
-        <h2>Where the marks went</h2>
+        <h2>Performance breakdown</h2>
         <label className="compact-label">
           Group by
           <select
@@ -26,7 +26,7 @@ export function Analytics({ data }) {
               <th>Area</th>
               <th>Score</th>
               <th>Accuracy</th>
-              <th>Right / Wrong / Skipped</th>
+              <th>Correct / Incorrect / Skipped</th>
               <th>Time</th>
             </tr>
           </thead>
