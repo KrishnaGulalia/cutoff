@@ -14,27 +14,26 @@ server-side scoring and clear question-level feedback.
 - Results, answer explanations, subject/chapter/topic/difficulty analytics and history.
 - A validated JSON import command and an optional original demo paper.
 
-**The core MVP is implemented.** Live Supabase connection and email delivery still
-need verification after project credentials are supplied. Verified historical
-papers and deployment are separate remaining steps. The demo is not JEE paper data.
+The hosted database has all 16 application tables and the six-question starter
+paper. Historical papers, real email delivery checks and deployment are pending.
 
 ## Stack
 
-| Layer          | Choice                                    |
-| -------------- | ----------------------------------------- |
-| Interface      | React, Vite, plain CSS                    |
-| API            | Node.js 22.12+ and Express                |
-| Database       | PostgreSQL on Supabase, queried with `pg` |
-| Authentication | Supabase Auth                             |
-| Tests          | Node test runner, Supertest, Playwright   |
+| Layer          | Choice                                  |
+| -------------- | --------------------------------------- |
+| Interface      | React, Vite, plain CSS                  |
+| API            | Node.js 22.12+ and Express              |
+| Database       | Supabase PostgreSQL with Prisma ORM     |
+| Authentication | Supabase Auth                           |
+| Tests          | Node test runner, Supertest, Playwright |
 
-Prisma has been removed. SQL migrations are the database source of truth.
+Prisma Client reads and writes the application tables. Versioned SQL migrations create the tables, constraints and triggers.
 
 ```text
 React → Supabase Auth: signup, login, password recovery
 React → Express: bearer token + student requests
 Express → Supabase Auth: verify the token
-Express → PostgreSQL: read/write private application tables
+Express → Prisma Client → Supabase PostgreSQL: read/write practice data
 ```
 
 ## Run locally
@@ -76,8 +75,9 @@ client/src/
 src/
   routes/         URL → service function
   middleware/     Authentication
-  services/       SQL queries, answer saving, scoring and imports
+  services/       Prisma queries, answer saving, scoring and imports
   lib/            Database transactions, errors and input checks
+prisma/schema.prisma  Prisma models and their database relationships
 supabase/migrations/  Ordered SQL files, applied once
 scripts/              Setup checks, migration and paper import commands
 data/                 Original demo and later verified paper JSON
@@ -89,15 +89,15 @@ data/                 Original demo and later verified paper JSON
 
 1. `src/app.js`: how the Express middleware and routes fit together.
 2. `src/routes/student.routes.js`: each API endpoint and its service call.
-3. `src/services/papers.js`: a small example of SQL with input parameters.
+3. `src/services/papers.js`: Prisma queries for listing papers and opening one by ID.
 4. `src/services/answers.js`: one transaction saves the complete answer.
 5. `src/services/scoring.js`: plain JavaScript determines outcomes and totals.
 6. `client/src/pages/PapersPage.jsx`: a page fetching and displaying API data.
 7. `client/src/hooks/useAttempt.js`: local state, the save queue and resume behavior.
 
-`$1` and `$2` are input placeholders, not string concatenation. A transaction
-runs several writes together: `COMMIT` keeps them, `ROLLBACK` cancels them.
-`FOR UPDATE` makes submission wait for an in-flight answer save.
+When an answer changes, Prisma saves the response and its selected options in
+one transaction. If either write fails, PostgreSQL rolls the whole save back.
+A row lock makes submission wait for an in-flight save.
 
 ## Database model
 

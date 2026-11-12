@@ -11,7 +11,8 @@ No service-role key or custom JWT secret is required by this application.
 The root `.env` is for Express only:
 
 ```dotenv
-DATABASE_URL=postgresql://postgres.PROJECT:ENCODED_PASSWORD@POOLER_HOST:5432/postgres
+DATABASE_URL=postgresql://postgres.PROJECT:ENCODED_PASSWORD@POOLER_HOST:6543/postgres
+DIRECT_URL=postgresql://postgres.PROJECT:ENCODED_PASSWORD@POOLER_HOST:5432/postgres
 SUPABASE_URL=https://PROJECT.supabase.co
 SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 PORT=3000
@@ -19,13 +20,16 @@ CLIENT_URL=http://localhost:5173
 DATABASE_CA_FILE=
 ```
 
-Copy the **Session pooler** connection string from the project's **Connect** panel.
-Replace its password placeholder. URL-encode special characters in the password.
-Use the host provided by your project; do not guess the pooler hostname.
-The direct connection also works if your network supports its IP version.
-TLS certificate verification stays enabled for remote connections. If your
-project requires its downloadable CA certificate, store it outside Git and set
-`DATABASE_CA_FILE` to that file's absolute path.
+Copy the PostgreSQL URLs from the project's **Connect** panel. Express uses
+`DATABASE_URL` for Prisma queries. This project uses Supabase's transaction
+endpoint on port 6543. The migration command uses `DIRECT_URL`, configured
+with the session endpoint on port 5432. Both URLs must point to the same project.
+A direct PostgreSQL connection also works on networks that can reach it.
+URL-encode special characters in the database password.
+
+The Prisma PostgreSQL adapter verifies the server certificate. Set
+`DATABASE_CA_FILE` to the path of the project's CA certificate when needed.
+Keep credentials in the ignored environment files. Commit only blank examples.
 
 The `client/.env.local` file is for Vite:
 
