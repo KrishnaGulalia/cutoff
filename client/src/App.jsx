@@ -14,13 +14,18 @@ import { ResultsPage } from "./pages/ResultsPage";
 import { HistoryPage } from "./pages/HistoryPage";
 import { ProfilePage } from "./pages/ProfilePage";
 function Protected() {
+  const location = useLocation();
   const { session, loading } = useAuth();
   return loading ? (
     <Loading />
   ) : session ? (
     <Outlet />
   ) : (
-    <Navigate to="/login" replace />
+    <Navigate
+      to="/login"
+      state={{ returnTo: location.pathname + location.search }}
+      replace
+    />
   );
 }
 export default function App() {
@@ -33,8 +38,11 @@ export default function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<AuthPage key="login" />} />
       <Route path="/signup" element={<AuthPage key="signup" mode="signup" />} />
-      <Route path="/forgot-password" element={<PasswordPage />} />
-      <Route path="/reset-password" element={<PasswordPage reset />} />
+      <Route path="/forgot-password" element={<PasswordPage key="request" />} />
+      <Route
+        path="/reset-password"
+        element={<PasswordPage key="reset" reset />}
+      />
       <Route element={<Protected />}>
         <Route
           path="/app/attempts/:id"

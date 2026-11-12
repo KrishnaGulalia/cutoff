@@ -219,3 +219,35 @@ test("auth forms handle confirmation and rejected login", async ({ page }) => {
     "reset link will arrive",
   );
 });
+
+test("a used or missing recovery link leads back to email recovery", async ({
+  page,
+}) => {
+  await page.goto("/reset-password");
+  await expect(
+    page.getByRole("heading", { name: "Request a new reset link." }),
+  ).toBeVisible();
+  await expect(page.getByLabel("New password")).toHaveCount(0);
+  await page.getByRole("link", { name: "Request reset email" }).click();
+  await expect(page.getByLabel("Email", { exact: true })).toBeVisible();
+});
+
+test("sign-in returns a student to their requested paper library", async ({
+  page,
+}) => {
+  await page.route("**/auth/v1/token**", (route) =>
+    route.fulfill({
+      contentType: "application/json",
+      body: JSON.stringify(session),
+    }),
+  );
+  await page.goto("/app/papers");
+  await expect(page).toHaveURL(/\/login$/);
+  await page.getByLabel("Email address").fill(session.user.email);
+  await page.getByLabel("Password", { exact: true }).fill("test-password-123");
+  await page.getByRole("button", { name: "Sign in" }).click();
+  await expect(page).toHaveURL(/\/app\/papers$/);
+  await expect(
+    page.getByRole("heading", { name: "Cutoff starter practice", exact: true }),
+  ).toBeVisible();
+});

@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Brand } from "../components/Brand";
 import { supabase } from "../lib/supabase";
 export function AuthPage({ mode = "login" }) {
   const signup = mode === "signup";
   const navigate = useNavigate();
+  const returnTo = useLocation().state?.returnTo;
+  const destination =
+    typeof returnTo === "string" && returnTo.startsWith("/app/")
+      ? returnTo
+      : "/app";
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
@@ -34,7 +39,7 @@ export function AuthPage({ mode = "login" }) {
           })
         : await supabase.auth.signInWithPassword(credentials);
       if (result.error) throw result.error;
-      if (result.data.session) navigate("/app");
+      if (result.data.session) navigate(destination, { replace: true });
       else setNotice("Check your inbox to confirm your email, then sign in.");
     } catch (error) {
       setError(error.message);
@@ -103,7 +108,7 @@ export function AuthPage({ mode = "login" }) {
                 type="password"
                 autoComplete={signup ? "new-password" : "current-password"}
                 required
-                minLength={8}
+                minLength={signup ? 8 : undefined}
                 placeholder={signup ? "At least 8 characters" : "Your password"}
               />
             </label>
