@@ -49,3 +49,16 @@ Screenshots and traces are saved under ignored `test-results/`.
 
 These tests do **not** establish that live Supabase confirmation/reset emails work.
 Follow the live journey in `docs/setup.md` once credentials are configured.
+
+## End-to-end email and practice check
+
+On 19 November 2026 the built React app and Express API were also tested with
+Supabase Auth (GoTrue), PostgreSQL and a Mailpit inbox running locally. A fresh
+student followed the confirmation email, opened the starter paper, saved an
+answer, reloaded and submitted it. The result showed the expected accuracy.
+The same student signed out, followed a recovery email and signed in with the new
+password. The old password was rejected. A protected attempt-history link
+returned the student to their history after sign-in.
+
+The hosted Supabase project passed the Auth settings and database health checks.
+External email delivery from that project still needs a test with a real inbox.
