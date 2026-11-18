@@ -1,4 +1,11 @@
 node_modules/
 .env
+.env.*
+!.env.example
 .DS_Store
-/src/generated/prisma
+client/dist/
+coverage/
+test-results/
+playwright-report/
+*.log
+*.pem
