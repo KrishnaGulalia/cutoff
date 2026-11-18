@@ -40,7 +40,7 @@ test('student completes an attempt and reviews it', async ({page}) => {
   await page.getByLabel('Group by').selectOption('chapters');
   await page.screenshot({path:'test-results/results-mobile.png',fullPage:true});
   await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:'test-results/results-desktop.png',fullPage:true});
-  await page.getByLabel('Show', {exact:true}).selectOption('correct');await expect(page.locator('.review-question')).toHaveCount(3);
+  await page.getByRole('combobox', {name:'Show',exact:true}).selectOption('correct');await expect(page.locator('.review-question')).toHaveCount(3);
   await page.locator('.review-question summary').first().click();await expect(page.getByRole('heading',{name:'Why it works'}).first()).toBeVisible();
 });
 test('failed saves keep the response and support retry',async({page})=>{
