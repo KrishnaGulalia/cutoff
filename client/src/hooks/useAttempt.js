@@ -5,13 +5,13 @@ export function useAttempt(id) {
   const [data,setData] = useState(null); const [error,setError] = useState('');
   const [answers,setAnswers] = useState({}); const [index,setIndex] = useState(0);
   const [saveState,setSaveState] = useState('All changes saved');
-  const state = useRef({ answers: {}, dirty: new Set(), revisions: {}, index: 0, data: null, lastTime: Date.now(), paused: false });
+  const state = useRef({ answers: {}, dirty: new Set(), revisions: {}, index: 0, data: null, lastTime: Date.now(), paused: false, visible: !document.hidden });
   const queue = useRef(Promise.resolve()); const debounce = useRef(null); const alive = useRef(true);
   function recordTime() {
     const current = state.current;
     const seconds = Math.floor((Date.now() - current.lastTime) / 1000);
     current.lastTime += seconds * 1000;
-    if (!seconds || current.paused || !current.data || document.hidden) return;
+    if (!seconds || current.paused || !current.data || !current.visible) return;
     const questionId = current.data.questions[current.index].question_id;
     const answer = current.answers[questionId] || blank();
     current.answers[questionId] = { ...answer, timeSpentSeconds: Math.min(86400, answer.timeSpentSeconds + seconds) };
@@ -67,14 +67,17 @@ export function useAttempt(id) {
       for (const answer of result.answers) restored[answer.question_id] = { selectedOptions: answer.selectedOptions,
         numericalResponse: answer.numerical_response === null ? null : Number(answer.numerical_response),
         markedForReview: answer.marked_for_review, timeSpentSeconds: answer.time_spent_seconds };
-      state.current = { answers: restored, dirty: new Set(), revisions: {}, index: 0, data: result, lastTime: Date.now(), paused: result.attempt.attempt_status === 'SUBMITTED' };
+      state.current = { answers: restored, dirty: new Set(), revisions: {}, index: 0, data: result, lastTime: Date.now(), paused: result.attempt.attempt_status === 'SUBMITTED', visible: !document.hidden };
       setAnswers(restored); setData(result);
     }).catch(error => { if (alive.current) setError(error.message); });
     const timer = setInterval(() => { if (state.current.data && !state.current.paused) save().catch(() => {}); }, 10000);
     const warn = event => { if (state.current.dirty.size) { event.preventDefault(); event.returnValue = ''; } };
-    const visibility = () => { state.current.lastTime = Date.now(); if (document.hidden && state.current.data && !state.current.paused) save().catch(() => {}); };
+    const visibility = () => {
+      recordTime(); state.current.visible = !document.hidden; state.current.lastTime = Date.now();
+      if (document.hidden && state.current.data && !state.current.paused) save().catch(() => {});
+    };
     window.addEventListener('beforeunload',warn); document.addEventListener('visibilitychange',visibility);
     return () => { alive.current = false; clearInterval(timer); clearTimeout(debounce.current); window.removeEventListener('beforeunload',warn); document.removeEventListener('visibilitychange',visibility); };
   }, [id]);
-  return { data,error,answers,index,saveState,change,navigate,save,submit, currentAnswer: data ? answers[data.questions[index].question_id] || blank() : blank() };
+  return { data,error,answers,index,saveState,change,navigate,save,submit, hasUnsavedChanges: () => state.current.dirty.size > 0 && !state.current.paused, currentAnswer: data ? answers[data.questions[index].question_id] || blank() : blank() };
 }
