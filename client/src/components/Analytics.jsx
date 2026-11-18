@@ -1,0 +1,5 @@
+import { useState } from 'react';
+export function Analytics({ data }) {
+  const [group,setGroup] = useState('subjects');
+  return <section className="analytics-section"><div className="section-heading"><h2>Where the marks went</h2><label className="compact-label">Group by<select value={group} onChange={event => setGroup(event.target.value)}><option value="subjects">Subject</option><option value="chapters">Chapter</option><option value="topics">Topic</option><option value="difficulty">Difficulty</option></select></label></div><div className="table-scroll"><table><thead><tr><th>Area</th><th>Score</th><th>Accuracy</th><th>Right / Wrong / Skipped</th><th>Time</th></tr></thead><tbody>{data[group].map(item => <tr key={item.name}><th scope="row">{item.name}</th><td>{item.score} / {item.maximumMarks}</td><td>{item.accuracy === null ? '—' : item.accuracy+'%'}</td><td>{item.correct} / {item.incorrect} / {item.skipped}</td><td>{Math.floor(item.timeSeconds/60)}m {item.timeSeconds%60}s</td></tr>)}</tbody></table></div></section>;
+}
