@@ -2,16 +2,16 @@
 
 The exact working example is `data/demo-paper.json`. Keep its structure.
 
-| Paper field | Meaning |
-|---|---|
-| title | Display title, including a version if correcting an imported paper |
-| year | Integer exam year |
-| session | Date/session/shift description |
-| durationMinutes | Integer from 1 to 300 |
-| sourceReference | Human-readable original source and answer-key reference |
-| isDemo | true for original demo content; false for verified historical material |
-| verified | Must be true after checking the content and keys |
-| questions | Ordered list of 1–200 question objects |
+| Paper field     | Meaning                                                                |
+| --------------- | ---------------------------------------------------------------------- |
+| title           | Display title, including a version if correcting an imported paper     |
+| year            | Integer exam year                                                      |
+| session         | Date/session/shift description                                         |
+| durationMinutes | Integer from 1 to 300                                                  |
+| sourceReference | Human-readable original source and answer-key reference                |
+| isDemo          | true for original demo content; false for verified historical material |
+| verified        | Must be true after checking the content and keys                       |
+| questions       | Ordered list of 1–200 question objects                                 |
 
 Each question supplies `subject` (Physics, Chemistry or Mathematics), `chapter`,
 `topic` (text or null), `text`, `type`, `difficulty`, `explanation`, `images`,

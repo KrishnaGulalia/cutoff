@@ -20,13 +20,13 @@ papers and deployment are separate remaining steps. The demo is not JEE paper da
 
 ## Stack
 
-| Layer | Choice |
-|---|---|
-| Interface | React, Vite, plain CSS |
-| API | Node.js 22.12+ and Express |
-| Database | PostgreSQL on Supabase, queried with `pg` |
-| Authentication | Supabase Auth |
-| Tests | Node test runner, Supertest, Playwright |
+| Layer          | Choice                                    |
+| -------------- | ----------------------------------------- |
+| Interface      | React, Vite, plain CSS                    |
+| API            | Node.js 22.12+ and Express                |
+| Database       | PostgreSQL on Supabase, queried with `pg` |
+| Authentication | Supabase Auth                             |
+| Tests          | Node test runner, Supertest, Playwright   |
 
 Prisma has been removed. SQL migrations are the database source of truth.
 
