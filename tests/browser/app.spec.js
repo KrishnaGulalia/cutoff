@@ -173,3 +173,49 @@ test("failed saves keep the response and support retry", async ({ page }) => {
     page.getByRole("heading", { name: "Every answer tells you something." }),
   ).toBeVisible();
 });
+
+test("auth forms handle confirmation and rejected login", async ({ page }) => {
+  await page.route("**/auth/v1/signup**", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        id: session.user.id,
+        email: "new@example.test",
+        identities: [{ id: session.user.id }],
+      }),
+    }),
+  );
+  await page.goto("/signup");
+  await page.getByLabel("Your name").fill("New student");
+  await page.getByLabel("Email address").fill("new@example.test");
+  await page.getByLabel("Password", { exact: true }).fill("test-password-123");
+  await page.getByRole("button", { name: "Create account" }).click();
+  await expect(page.getByRole("status")).toContainText("Check your inbox");
+  await page.route("**/auth/v1/token**", (route) =>
+    route.fulfill({
+      status: 400,
+      contentType: "application/json",
+      body: JSON.stringify({
+        error: "invalid_grant",
+        error_description: "Invalid login credentials",
+      }),
+    }),
+  );
+  await page.goto("/login");
+  await page.getByLabel("Email address").fill("new@example.test");
+  await page.getByLabel("Password", { exact: true }).fill("wrong-password");
+  await page.getByRole("button", { name: "Sign in" }).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "Invalid login credentials",
+  );
+  await page.route("**/auth/v1/recover**", (route) =>
+    route.fulfill({ status: 200, contentType: "application/json", body: "{}" }),
+  );
+  await page.getByRole("link", { name: "Forgot password?" }).click();
+  await page.getByLabel("Email", { exact: true }).fill("new@example.test");
+  await page.getByRole("button", { name: "Send reset link" }).click();
+  await expect(page.getByRole("status")).toContainText(
+    "reset link will arrive",
+  );
+});
