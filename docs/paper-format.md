@@ -1,6 +1,6 @@
 # Adding verified papers
 
-The exact working example is `data/demo-paper.json`. Keep its structure.
+A working example is `data/2026-session-2/2026-04-02-evening.json`. Keep its structure.
 
 | Paper field     | Meaning                                                                |
 | --------------- | ---------------------------------------------------------------------- |
@@ -18,12 +18,11 @@ Each question supplies `subject` (Physics, Chemistry or Mathematics), `chapter`,
 `options`, `correctOptions`, `numericalKey` and `marks`.
 
 Types: `SINGLE_CHOICE`, `MULTIPLE_SELECT`, `NUMERICAL`.
-Difficulties: `easy`, `medium`, `hard`.
-Images: arrays of HTTPS image URLs. Host images at stable, publicly readable URLs;
-never include private credentials in image links. Text is rendered as plain text,
-not HTML. LaTeX rendering and image upload tools are future additions.
+Use easy, medium or hard for a sourced difficulty rating. Use unrated when the paper gives none.
+Images: arrays of HTTPS image URLs or bundled paths such as /papers/2026-04-02-evening-figures/q30.webp. Host images at stable, publicly readable URLs;
+never include private credentials in image links. Use dollar signs around LaTeX formulas in prompts and options. Statements can be separated with newlines. Figures appear inside the question or its review.
 
-Choice options contain `label` (A–Z), `text`, and `images`. An image-only option
+Choice options contain `label` (A–Z or 1–4), `text`, and `images`. An image-only option
 may have empty text. A single-choice question has one correct label; multiple-select
 questions have one or more. Both use `numericalKey: null`.
 

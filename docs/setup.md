@@ -61,7 +61,7 @@ configure your own SMTP provider and test delivery before inviting students.
 ```bash
 npm run check:env
 npm run db:migrate
-npm run seed:demo
+npm run papers:import
 npm run dev
 ```
 
@@ -74,21 +74,9 @@ The tables are visible under schema **cutoff** in Supabase's table editor.
 Keep that schema out of the Data API's exposed schemas. RLS and revoked browser
 privileges are defense in depth; Express still checks ownership on every request.
 
-The optional demo import runs once. Repeating it reports that the paper exists.
-The normal app starts with an honest empty library if no data has been imported.
+The paper import loads the 2 April 2026 evening paper. It can resume after an interruption.
 
-## 5. Check the live journey
-
-1. Open http://localhost:5173 and create an account.
-2. Confirm the email and sign in.
-3. Open the demo paper, select an answer, wait for “All changes saved”, and refresh.
-4. Resume, submit, and check the result and explanation.
-5. Sign out. Check that `/app` returns to login.
-6. Request a password-reset email and complete the reset link.
-7. Confirm another account cannot access the first account's attempt URL.
-
-`GET /api/health` checks the server; `/api/health/db` checks that the database
-and application schema are reachable. Neither endpoint exposes connection details.
+`GET /api/health` checks the server and `/api/health/db` checks the database connection.
 
 ## Official references
 

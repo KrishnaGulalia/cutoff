@@ -1,3 +1,5 @@
+import { ExamText } from "./ExamText";
+import { QuestionImage } from "./QuestionImage";
 export function Question({ question, answer, onChange, disabled = false }) {
   function choose(label) {
     let selectedOptions = [label];
@@ -22,14 +24,16 @@ export function Question({ question, answer, onChange, disabled = false }) {
           +{question.marks_correct} / {question.marks_incorrect}
         </span>
       </div>
-      <h2>{question.question_text}</h2>
-      {question.images.map((url, i) => (
-        <img
-          className="question-image"
-          src={url}
-          alt={"Question diagram " + (i + 1)}
+      <h2>
+        <ExamText text={question.question_text} />
+      </h2>
+      {question.images.map((url, index) => (
+        <QuestionImage
+          url={url}
           key={url}
-          referrerPolicy="no-referrer"
+          title={
+            "Diagram " + (index + 1) + " for question " + question.position
+          }
         />
       ))}
       {question.question_type === "NUMERICAL" ? (
@@ -76,7 +80,7 @@ export function Question({ question, answer, onChange, disabled = false }) {
               />
               <span className="option-letter">{option.label}</span>
               <span>
-                {option.text}
+                <ExamText text={option.text} />
                 {option.images.map((url) => (
                   <img
                     src={url}

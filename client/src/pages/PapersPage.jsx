@@ -63,11 +63,7 @@ export function PapersPage() {
               <div className="paper-card-main">
                 <div className="paper-meta">
                   <span>{paper.exam_year}</span>
-                  <span>
-                    {paper.is_demo
-                      ? "ORIGINAL PRACTICE"
-                      : "PREVIOUS-YEAR PAPER"}
-                  </span>
+                  <span>JEE MAIN PAPER</span>
                 </div>
                 <h2>{paper.test_title}</h2>
                 <p>{paper.session_label}</p>

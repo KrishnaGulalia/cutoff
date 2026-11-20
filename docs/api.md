@@ -11,7 +11,7 @@ Responses are JSON. Errors use `{ "error": "Readable message" }`.
 | GET    | /health/db                        | Database/schema readiness                     |
 | GET    | /me                               | Current profile and Auth email                |
 | PATCH  | /me                               | Update display name: `{ "name": "Krishna" }`  |
-| GET    | /papers?year=2026&search=starter  | Up to 100 matching papers                     |
+| GET    | /papers?year=2026&search=April    | Up to 100 matching papers                     |
 | GET    | /papers/:id                       | Paper metadata, count and maximum marks       |
 | POST   | /papers/:id/attempts              | Start a new attempt or resume the active one  |
 | GET    | /attempts                         | Latest 100 attempts for this student          |

@@ -5,12 +5,14 @@ export function QuestionPalette({
   onSelect,
   disabled,
 }) {
+  const subject = questions[current].subject_name;
   return (
     <aside className="question-palette">
-      <h2>Your paper</h2>
-      <p>Jump to any question.</p>
+      <h2>{subject}</h2>
+      <p>Jump to a question in this subject.</p>
       <div className="palette-grid">
         {questions.map((question, index) => {
+          if (question.subject_name !== subject) return null;
           const answer = answers[question.question_id];
           const answered =
             answer &&

@@ -1,0 +1,2794 @@
+{
+  "title": "JEE Main 2026 · 2 April · Evening Shift",
+  "year": 2026,
+  "session": "Session 2 · 2 April 2026 · Shift 2",
+  "durationMinutes": 180,
+  "sourceReference": "MathonGo · JEE Main 2026, 2 April (Evening Shift). Questions and grading follow the supplied MathonGo answer key.",
+  "isDemo": false,
+  "verified": true,
+  "questions": [
+    {
+      "subject": "Mathematics",
+      "chapter": "Quadratic equations",
+      "topic": null,
+      "text": "Let $\\alpha,\\beta$ be the roots of $x^2-3x+r=0$, and let $\\alpha/2,2\\beta$ be the roots of $x^2+3x+r=0$. If the roots of $x^2+6x=m$ are $2\\alpha+\\beta+2r$ and $\\alpha-2\\beta-r/2$, find $m$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$-135$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$-567$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$135$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$567$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Complex numbers",
+      "topic": null,
+      "text": "Let $C_1:|z|=r$ and $C_2:|z-3-4i|=5$, $z\\in\\mathbb C$, be circles such that $C_2$ lies within $C_1$. If $z_1$ moves on $C_1$, $z_2$ moves on $C_2$, and $\\min |z_1-z_2|=2$, find $\\max |z_1-z_2|$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "12",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "17",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "22",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "24",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Matrices and determinants",
+      "topic": null,
+      "text": "The system $x+5y+6z=4$, $2x+3y+4z=7$, $x+6y+az=b$ has infinitely many solutions. On which line does the point $(a,b)$ lie?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$y-x=3$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$x-y=3$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$x+y=11$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$x+y=12$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Sequences and series",
+      "topic": null,
+      "text": "Let $a_1,a_2,a_3,\\ldots$ be an arithmetic progression and $g_1=a_1,g_2,g_3,\\ldots$ an increasing geometric progression. If $a_1=a_2+g_2=1$ and $a_3+g_3=4$, find $a_{10}+g_5$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "81",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "76",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "62",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "55",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Sequences and series",
+      "topic": null,
+      "text": "Find the sum of the first eight terms of $\\frac{1^3}{1}+\\frac{1^3+2^3}{1+3}+\\frac{1^3+2^3+3^3}{1+3+5}+\\cdots$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "70",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "71",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "72",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "73",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Binomial theorem",
+      "topic": null,
+      "text": "For $3\\le r\\le30$, $\\binom{30}{30-r}+3\\binom{30}{31-r}+3\\binom{30}{32-r}+\\binom{30}{33-r}=\\binom{m}{r}$. Find $m$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "31",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "32",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "33",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "34",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Permutations and combinations",
+      "topic": null,
+      "text": "Let $p_n$ be the number of triangles formed by joining vertices of a regular $n$-sided polygon. If $p_{n+1}-p_n=66$, find the sum of all distinct prime divisors of $n$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "7",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "8",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "5",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "6",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Probability",
+      "topic": null,
+      "text": "A man repeatedly tosses a fair coin. He gets 10 points for each head and 5 points for each tail. If the probability of getting exactly 30 points is $m/n$, where $\\gcd(m,n)=1$, find $m+n$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "53",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "55",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "107",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "105",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Statistics",
+      "topic": null,
+      "text": "The mean and variance of $n$ observations are 8 and 16, respectively. The first $n-1$ observations have sum 48 and sum of squares 496. Find $n$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "21",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "16",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "13",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "7",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Circles",
+      "topic": null,
+      "text": "A circle passes through the origin. Its centre is the intersection of the perpendicular lines $x+(k-1)y+3=0$ and $2x+k^2y-4=0$. The line $x-y+2=0$ meets the circle at A and B. Find $(AB)^2$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "10",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "27",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "18",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "34",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Hyperbola",
+      "topic": null,
+      "text": "Let O be the origin and P and Q be points on the rectangular hyperbola $xy=12$. If the midpoint of PQ is $(1/2,-1/2)$, find the area of triangle OPQ.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\frac32$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\frac52$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$\\frac72$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$\\frac92$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Parabola",
+      "topic": null,
+      "text": "The parabola $y=x^2+px+q$ passes through $(1,-1)$. If the distance from its vertex to the $x$-axis is minimum, find $p^2+q^2$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "2",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "4",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "5",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "8",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Sets and trigonometry",
+      "topic": null,
+      "text": "Let $P=\\{\\theta\\in[0,4\\pi]:\\tan^2\\theta\ne1\\}$. Let $S=\\{a\\in\\mathbb Z:2(\\cos^8\\theta-\\sin^8\\theta)\\sec(2\\theta)=a^2,\\ \\theta\\in P\\}$. Find the number of elements in $S$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "1",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "2",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "3",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Vector algebra",
+      "topic": null,
+      "text": "Let $\\vec a=-\\hat i+\\hat j+3\\hat k$ and $\\vec b=\\hat i+3\\hat j+\\hat k$. For some $\\lambda,\\mu\\in\\mathbb R$, let $\\vec c=\\lambda\\vec a+\\mu\\vec b$. If $\\vec c\\cdot(3\\hat i-6\\hat j+2\\hat k)=10$ and $\\vec c\\cdot(\\hat i+\\hat j+\\hat k)=-2$, find $|\\vec c|^2$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "8",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "12",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "14",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "15",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Three-dimensional geometry",
+      "topic": null,
+      "text": "A is the foot of the perpendicular from $P(a,b,0)$ to the line $\\frac{x-1}{2}=\\frac{y-2}{1}=\\frac{z-\\alpha}{3}$. If the midpoint of PA is $(0,3/4,-1/4)$, find $a^2+b^2+\\alpha^2$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "1",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "2",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "6",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "9",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Vector algebra",
+      "topic": null,
+      "text": "Two adjacent sides of parallelogram PQRS are $\\overrightarrow{PQ}=\\hat j+\\hat k$ and $\\overrightarrow{PS}=\\hat i-\\hat j$. Side PS is rotated about P through an acute angle $\\alpha$ in the plane of the parallelogram until it is perpendicular to PQ. Find $\\sin^2(5\\alpha/2)-\\sin^2(\\alpha/2)$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\frac12$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\frac{\\sqrt3}{2}$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$\\frac{\\sqrt3}{4}$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$\\frac{2\\sqrt3}{5}$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Definite integrals",
+      "topic": null,
+      "text": "Evaluate $\\int_0^{20\\pi}(\\sin^4 x+\\cos^4 x)\\,dx$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\frac{15\\pi}{2}$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$25\\pi$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$15\\pi$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$\\frac{25\\pi}{2}$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Applications of derivatives",
+      "topic": null,
+      "text": "A polynomial $f(x)$ of degree 5 has extrema at $x=1$ and $x=-1$. If $\\lim_{x\\to0}f(x)/x^3=-5$, find $f(2)-f(-2)$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "50",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "92",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "112",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Indefinite integrals",
+      "topic": null,
+      "text": "Let $f(x)=\\int\\frac{16x+24}{x^2+2x-15}\\,dx$. If $f(4)=14\\ln3$ and $f(7)=\\ln(2^\\alpha\\cdot3^\\beta)$, with $\\alpha,\\beta\\in\\mathbb N$, find $\\alpha+\\beta$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "31",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "37",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "39",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "41",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Differential equations",
+      "topic": null,
+      "text": "Let $x=x(y)$ solve $2y^2\\frac{dx}{dy}-2xy+x^2=0$ for $y>1$, with $x(e)=e$. Find $x(e^2)$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\frac32e^2$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\frac23e^2$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$e^2$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$2e^2$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Relations and functions",
+      "topic": null,
+      "text": "Let $A=\\{2,3,4,5,6\\}$. A relation R on $A\\times A$ satisfies $(x,y)\\,R\\,(z,w)$ exactly when $x$ divides $z$ and $y\\le w$. How many elements are in R?",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 120,
+        "max": 120
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Matrices and determinants",
+      "topic": null,
+      "text": "Let $A=\\begin{pmatrix}2&-2\\\\4&-2\\end{pmatrix}$ and $B=\\begin{pmatrix}3&9\\\\1&3\\end{pmatrix}$. If $PA=B$ and $AQ=B$, find the absolute value of the sum of the diagonal elements of $2(P+Q)$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 34,
+        "max": 34
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Conic sections",
+      "topic": null,
+      "text": "Let $A=(3,0)$. Circles with variable diameter AB touch the circle $x^2+y^2=36$ internally. Let C be the locus of B. If its eccentricity is $e$, find $72e^2$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 18,
+        "max": 18
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Area under curves",
+      "topic": null,
+      "text": "The area of the region bounded by $16x^2-9y^2=144$ and $8x-3y=24$ is $A$. Find $3(A+6\\ln3)$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 24,
+        "max": 24
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Mathematics",
+      "chapter": "Continuity and differentiability",
+      "topic": null,
+      "text": "At how many points in $[2,4]$ is $f(x)=\\left\\lfloor x^2-x-\\frac12\\right\\rfloor$ discontinuous? Here $\\lfloor\\cdot\\rfloor$ denotes the greatest integer function.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 10,
+        "max": 10
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Units and dimensions",
+      "topic": null,
+      "text": "What are the dimensions of the universal gravitational constant $G$ in terms of Planck's constant $h$, distance $L$, mass $M$ and time $T$?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$[hTLM^{-2}]$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$[hT^{-1}LM^{-2}]$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$[hTL^2M^{-2}]$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$[h^{-1}T^{-1}LM^{-2}]$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Laws of motion",
+      "topic": null,
+      "text": "A 0.5 kg mass touches the inner wall of a cylindrical drum of radius 4 m rotating about its vertical axis. The minimum angular speed that keeps it against the wall without falling is 5 rad/s. Find the coefficient of friction. Take $g=10$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.1",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "0.5",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "0.7",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "0.3",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Centre of mass",
+      "topic": null,
+      "text": "Blocks of masses 2 kg and 1 kg hang from opposite ends of a string over a light, frictionless fixed pulley. They are held at rest at the same height and then released. How far, in metres, does their centre of mass travel in 2 s? Take $g=10$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "3.33",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "3.12",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "2.22",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "1.42",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Moving charges and magnetism",
+      "topic": null,
+      "text": "A particle of charge $10^{-9}$ C moves in the $xy$-plane in fields $\\vec E=0.4\\hat j$ N/C and $\\vec B=4\\times10^{-3}\\hat k$ T. It experiences a force $(4\\hat i+2\\hat j)\\times10^{-10}$ N. Find its instantaneous velocity in m/s.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$50\\hat i+100\\hat j$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$100\\hat i+50\\hat j$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$-50\\hat i+100\\hat j$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$50\\hat i-100\\hat j$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Electronic devices",
+      "topic": null,
+      "text": "The circuit shown has inputs X and Y. Which logic gate does the complete circuit implement?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [
+        "/papers/2026-04-02-evening-figures/q30.webp"
+      ],
+      "options": [
+        {
+          "label": "1",
+          "text": "OR gate",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "AND gate",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "NAND gate",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "NOR gate",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Gravitation",
+      "topic": null,
+      "text": "A body of mass 1 kg falls to Earth from infinity. What are its speed and kinetic energy, respectively, on reaching the surface? Take Earth's radius as 6400 km and $g=9.8$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "11.2 km/s and $6.27\\times10^7$ J",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "11.2 km/s and $12.54\\times10^7$ J",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "8.8 km/s and $6.27\\times10^7$ J",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "8.8 km/s and $12.54\\times10^7$ J",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Experimental skills",
+      "topic": null,
+      "text": "When the studs of a screw gauge touch, the fifth circular-scale division coincides with the main-scale reference line. The circular scale has 100 divisions and the pitch is 0.1 mm. For a sphere, the main-scale reading is 5 mm and the 50th circular-scale division coincides with the reference line. What is the sphere's diameter in mm?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "5.045",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "5.055",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "5.450",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "5.550",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Mechanical properties of fluids",
+      "topic": null,
+      "text": "A soap bubble has surface tension 0.03 N/m. The work required to increase its diameter from 2 cm to 6 cm is $\\alpha\\pi\\times10^{-4}$ J. Find $\\alpha$. Take $\\pi=3.14$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.86",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "0.64",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "1.92",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "7.68",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Kinetic theory",
+      "topic": null,
+      "text": "A mixture of carbon dioxide and oxygen occupies 8310 cm³ at 300 K and 100 kPa. Its mass is 13.2 g. Find the numbers of moles of carbon dioxide and oxygen, respectively. Assume ideal gases and take $R=8.31$ J/(mol·K).",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.15 and 0.18",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "0.25 and 0.08",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "0.21 and 0.12",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "0.13 and 0.20",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Mechanical properties of fluids",
+      "topic": null,
+      "text": "An air bubble of diameter 2 mm rises steadily at 0.5 cm/s through a liquid of density 2000 kg/m³. Find the coefficient of viscosity in poise. Take $g=10$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.88",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "8.8",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "88.8",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "0.088",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Work, energy and power",
+      "topic": null,
+      "text": "A spherical ball of mass 2 kg falls from a height of 10 m and comes to rest after penetrating 10 cm into sand. What average force, in newtons, does the sand exert on the ball? Take $g=10$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "1980",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "2020",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "2000",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "1000",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Electromagnetic waves",
+      "topic": null,
+      "text": "An electromagnetic wave travels in free space along the $x$-direction. At a particular point and time its magnetic field is $\\vec B=2\\times10^{-7}\\hat j$ T. Find the corresponding electric field in V/m.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$60\\hat k$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$-60\\hat k$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$30\\hat k$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$-600\\hat k$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Current electricity",
+      "topic": null,
+      "text": "Resistors of 200 Ω and 400 Ω are in series with a 100 V battery. A bulb rated at 200 V, 100 W is connected across the 400 Ω resistor. What is the potential difference across the bulb in volts?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "25",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "50",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "66.6",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "100",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Electrostatics",
+      "topic": null,
+      "text": "Horizontal plates A and B are separated by $12/\\pi$ cm, with A above B. Oil droplets of radius 1 mm and density 1.5 g/cm³ are sprayed horizontally. Each carries a charge of 5 nC. Which potentials $V_A,V_B$, respectively, keep the droplets from descending? Neglect air resistance and take $g=10$ m/s².",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "100 V and 580 V",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "580 V and 100 V",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "60 V and 400 V",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "0 V and −200 V",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Electrostatics",
+      "topic": null,
+      "text": "Point charges of 8 μC and −2 μC are at $x=2$ cm and $x=4$ cm, respectively. What is the ratio of the electric fluxes through two spheres centred at the origin with radii 3 cm and 5 cm, respectively?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "4 : 1",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "3 : 4",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "4 : 3",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "4 : 5",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Ray optics",
+      "topic": null,
+      "text": "One face of an equilateral prism is coated with a transparent material of refractive index $n_2$. The prism has refractive index 1.6. For the ray shown, find the minimum value of $n_2$ required for total internal reflection from the coated face.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [
+        "/papers/2026-04-02-evening-figures/q41.webp"
+      ],
+      "options": [
+        {
+          "label": "1",
+          "text": "$3\\sqrt3/1.6$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\sqrt3$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$3.2/\\sqrt3$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$4\\sqrt3/5$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Alternating current",
+      "topic": null,
+      "text": "In the series LCR circuit shown, the phase difference between current and source voltage is 30° when switch $S_1$ is closed and $S_2$ is open. It is 60° when $S_2$ is closed and $S_1$ is open. Find $3L_1-L_2$ in henries.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [
+        "/papers/2026-04-02-evening-figures/q42.webp"
+      ],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\frac92$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\frac29$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$\\frac13$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "3",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Electromagnetic induction",
+      "topic": null,
+      "text": "A circular loop of radius $R$ is inside a square loop of side $L$, where $L\\gg R$. The loops are coplanar and concentric. If the permeability of free space is $\\mu_0$, what is their mutual inductance?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$2\\sqrt2\\,\\mu_0 L^2/R$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\sqrt2\\,\\mu_0 L^2/R$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$\\sqrt2\\,\\mu_0 R^2/L$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$2\\sqrt2\\,\\mu_0 R^2/L$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Nuclei",
+      "topic": null,
+      "text": "Find the binding energy per nucleon of $^{209}_{83}\\mathrm{Bi}$ in MeV. Take its mass as 208.980388 u, $m_p=1.007825$ u, $m_n=1.008665$ u and $1\\ \\mathrm{u}=931\\ \\mathrm{MeV}/c^2$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "7.48",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "7.84",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "8.79",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "6.94",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Oscillations",
+      "topic": null,
+      "text": "A particle moves according to $x=a\\sin(50t+\\pi/3)$ cm. It comes to rest at time $t_1$ and has zero acceleration at time $t_2$. Find $t_1$ and $t_2$, respectively.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$\\pi/300$ s and $\\pi/75$ s",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$\\pi/75$ s and $\\pi/300$ s",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$\\pi/300$ s and $\\pi/25$ s",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$\\pi/50$ s and $\\pi/100$ s",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Wave optics",
+      "topic": null,
+      "text": "In Young's double-slit experiment, the intensity at a point on the screen is three quarters of the maximum intensity. The path difference there is $\\lambda/x$, where $\\lambda$ is the incident wavelength. Find $x$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 6,
+        "max": 6
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Atoms",
+      "topic": null,
+      "text": "Using Bohr's model, find the ratio of the magnetic fields produced by the electron's motion in the second and fourth orbits of a hydrogen atom, respectively.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 32,
+        "max": 32
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Thermodynamics",
+      "topic": null,
+      "text": "Five moles of an unknown gas are heated at constant volume from 10 °C to 20 °C. Its molar heat capacity at constant pressure is 8 cal/(mol·°C). Take $R=8.36$ J/(mol·°C). Find the change in internal energy in calories.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 300,
+        "max": 300
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Ray optics",
+      "topic": null,
+      "text": "Sunlight focused onto paper by a convex lens burns it in the shortest time when the lens is 30 cm above the paper. The radius of curvature of the lens is 60 cm and its material has refractive index $\\alpha/10$. Find $\\alpha$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 20,
+        "max": 20
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Physics",
+      "chapter": "Rotational motion",
+      "topic": null,
+      "text": "A uniform rod of mass 40 kg and length 3 m has the same moment of inertia about axis AB as a solid sphere of mass 10 kg and radius $R$ about an axis parallel to AB and separated from it by 3 m, as shown. If $R=\\sqrt{\\alpha/2}$, find $\\alpha$.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [
+        "/papers/2026-04-02-evening-figures/q50.webp"
+      ],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 15,
+        "max": 15
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Some basic concepts of chemistry",
+      "topic": null,
+      "text": "The mass-percentage ratio C : H in a hydrocarbon is 12 : 1. Each molecule has two carbon atoms. What mass of CO₂, in grams, forms when 3.38 g of the hydrocarbon burns completely in oxygen? Molar masses in g/mol: C = 12, H = 1, O = 16.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "5.68",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "11.44",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "22.74",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "17.05",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Ionic equilibrium",
+      "topic": null,
+      "text": "The first and second ionization constants of a weak dibasic acid H₂A are $8.1\\times10^{-8}$ and $1.0\\times10^{-13}$, respectively. A 0.1 mol sample of H₂A is dissolved in 1 L of 0.1 M HCl. Find the concentration of HA⁻.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.1 M",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$9.53\\times10^{-6}$ M",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$8.1\\times10^{-8}$ M",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$1.0\\times10^{-13}$ M",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Chemical bonding",
+      "topic": null,
+      "text": "Which species are isostructural with SF₄?\nA. BrF₄⁻\nB. CH₄\nC. IF₄⁺\nD. XeF₄\nE. XeO₂F₂",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "C only",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "C and E only",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "A and D only",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "B and E only",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Chemical thermodynamics",
+      "topic": null,
+      "text": "Gas A changes from state X to state Y, absorbing 10 J of heat and doing 18 J of work. It returns to X by another process, during which it releases 6 J of heat. Which statement describes the return process?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "The gas does 18 J of work.",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "The gas does 2 J of work.",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "The surroundings do 12 J of work on the gas.",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "The surroundings do 14 J of work on the gas.",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Solutions",
+      "topic": null,
+      "text": "Solution A contains 1 g of a protein of molar mass 50,000 g/mol in 0.5 L of water at 300 K. Its osmotic pressure is $x$ bar. Solution B contains 2 g of the same protein in 1 L of water at 300 K and has osmotic pressure $y$ bar. Mixing the entire solutions at the same temperature gives osmotic pressure $z$ bar. Find $x,y,z$, respectively. Take $R=0.083$ L·bar/(mol·K).",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "$(9.96,\\ 9.96,\\ 9.96)\\times10^{-4}$",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "$(9.96,\\ 9.96,\\ 19.92)\\times10^{-4}$",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "$(4.98,\\ 4.98,\\ 9.96)\\times10^{-4}$",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "$(4.98,\\ 4.98,\\ 4.98)\\times10^{-4}$",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Ionic equilibrium",
+      "topic": null,
+      "text": "At 25 °C, 20.0 mL of 0.2 M weak monoprotic acid HX is titrated with 0.2 M NaOH. Find the pH (a) before NaOH is added and (b) after 10 mL has been added. Given $K_a=5\\times10^{-4}$, $\\mathrm pK_a=3.3$, and $\\alpha\\ll1$.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "0.7 and 2.0",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "2.0 and 3.3",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "1.1 and 2.2",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "3.0 and 2.2",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Chemical kinetics",
+      "topic": null,
+      "text": "For the reaction $aX\\to bY$, the rate constant at 30 °C is $1\\times10^{-3}$ L/(mol·s). Which statements are true?\nA. Increasing the concentration of X fourfold increases the rate sixteenfold.\nB. The reaction is second order.\nC. The half-life is independent of the concentration of X.\nD. Decomposition of N₂O₅ is an example of this reaction type.\nE. A plot of $\\ln([R_0]/[R])$ versus time is valid for this reaction.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "A and B only",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "A, B and C only",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "A, B, D and E only",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "C and D only",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Classification of elements",
+      "topic": null,
+      "text": "Which set contains all four types of oxide: basic, acidic, amphoteric and neutral?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Na₂O, K₂O, Al₂O₃ and As₂O₃",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Al₂O₃, As₂O₃, CO and NO",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "K₂O, Cl₂O₇, As₂O₃ and NO",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Na₂O, N₂O, Al₂O₃ and CO",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Classification of elements",
+      "topic": null,
+      "text": "Statement I: The second ionization enthalpies of B, Al and Ga follow B > Al > Ga.\nStatement II: The first ionization enthalpies follow Si < Ge < Pb < Sn.\nWhich statements are true?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Both statements are true.",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Both statements are false.",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Statement I is true and Statement II is false.",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Statement I is false and Statement II is true.",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Coordination compounds",
+      "topic": null,
+      "text": "Statement I: Among Zn, Mn, Sc and Cu, the energy required to remove the third valence electron is highest for Zn and lowest for Sc.\nStatement II: The increasing order of crystal field stabilization energy is [Co(H₂O)₆]²⁺ < [Co(H₂O)₆]³⁺ < [Co(en)₃]³⁺.\nWhich statements are true?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Both statements are true.",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Both statements are false.",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Statement I is true and Statement II is false.",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Statement I is false and Statement II is true.",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Coordination compounds",
+      "topic": null,
+      "text": "Which complexes show coordination isomerism?\nA. [Ag(NH₃)₂][Ag(CN)₂]\nB. [Co(NH₃)₆][Cr(CN)₆]\nC. [Co(NH₃)₆][Co(CN)₆]\nD. [Fe(NH₃)₆][Co(CN)₆]\nE. [Co(NH₃)₆][Fe(CN)₆]",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "B, C and D only",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "B, D and E only",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "A, C and D only",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "C, D and E only",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Organic quantitative analysis",
+      "topic": null,
+      "text": "Complete combustion of a sample gives 0.25 g of CO₂ and 0.12 g of H₂O. The sample contains 25% carbon and 4.89% hydrogen by mass. If the sample mass is $X\\times10^{-3}$ g, find $X$ to the nearest integer. Molar masses in g/mol: C = 12, H = 1, O = 16.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "273",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "27",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "2730",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "227",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "General organic chemistry",
+      "topic": null,
+      "text": "Statement I: In O₂N–C₆H₄–CH⁺–C₆H₄–OCH₃, the carbocation is stabilized by the +R effect of –OCH₃.\nStatement II: In O₂N–C₆H₄–CH⁻–C₆H₄–OCH₃, the carbanion is stabilized by the −R effect of –NO₂.\nWhich statements are true?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Both statements are true.",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Both statements are false.",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Statement I is true and Statement II is false.",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Statement I is false and Statement II is true.",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "1"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Hydrocarbons",
+      "topic": null,
+      "text": "Compound X gives 2,4-dimethylpentane on heating with anhydrous AlCl₃ and HCl gas. It gives toluene on aromatization and methylcyclohexane on cyclization. What is X?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Hept-2-ene",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Hept-1,3,5-triene",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Heptane",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Hept-2,4,6-triene",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Haloalkanes and haloarenes",
+      "topic": null,
+      "text": "Which statements about alkyl halides (R–X) are correct?\nA. Alcohol is less polar than water, and alcoholic KOH favours elimination with R–X.\nB. Reactivity towards the $S_\\mathrm{N}1$ mechanism follows C₆H₅–CH₂–Cl > C₆H₅–CHCl–C₆H₅.\nC. Unsubstituted aryl halides exhibit properties similar to alkyl halides.\nD. Vinyl chloride is a haloalkene and allyl chloride is a haloalkyne.\nE. R–Cl can be prepared from R–OH with SOCl₂, but Ar–Cl cannot be prepared from Ar–OH with SOCl₂.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "A, B and C only",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "B and D only",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "A and E only",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "D and E only",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Aldehydes, ketones and carboxylic acids",
+      "topic": null,
+      "text": "An organic compound X contains C, O and H in equal molar amounts and has molar mass 58 g/mol. Treatment with 50% KOH under reflux followed by acidification gives Y. Which structure is most likely for Y?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "CH₂=CH–C(=O)–OH",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "CH₃–CH=CH–CH=O",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "HO–CH₂–C(=O)–OH",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "CH₃–C(=O)–OH",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Organic compounds containing oxygen",
+      "topic": null,
+      "text": "Compound X, CH₃–CH=CH–O–C(CH₃)=CH₂, hydrolyses under mildly acidic conditions to give Y and Z. Which statements about Y and Z are correct?\nA. They have the same molar mass.\nB. NaHCO₃ can distinguish them.\nC. They react with HCN at the same rate.\nD. They undergo addition reactions with 2,4-DNP.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "A, B and C only",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "B and C only",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "C and D only",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "A and D only",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Aromatic compounds",
+      "topic": null,
+      "text": "Start with 1-ethyl-4-nitrobenzene. The sequence is Br₂/AlBr₃ → A; Sn/HCl → B; NaNO₂/HCl at 273–278 K → C; C₂H₅OH → D; then (i) KMnO₄/KOH and (ii) H₃O⁺ → E. Identify A and E. In the descriptions of A, ethyl is at ring position 1.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "A: Br at 3, NO₂ at 4. E: 3-bromobenzoic acid.",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "A: Br at 2, NO₂ at 4. E: 2-bromobenzoic acid.",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "A: 4-nitrophenyl–CH₂CH₂Br. E: benzoic acid.",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "A: Br at 2, NO₂ at 4. E: 2-bromo-4-hydroxybenzoic acid.",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "2"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Biomolecules",
+      "topic": null,
+      "text": "Which pair gives an amino acid and its iodinated hormone derivative, respectively? T and Y are one-letter amino acid codes.",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "T and insulin",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "T and thyroxine",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Y and thyroxine",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Y and insulin",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "3"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Practical chemistry",
+      "topic": null,
+      "text": "Among Fe²⁺, Fe³⁺, Cr²⁺ and Zn²⁺, which ion gives a positive borax bead test and has the highest ionization enthalpy?",
+      "type": "SINGLE_CHOICE",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [
+        {
+          "label": "1",
+          "text": "Fe²⁺",
+          "images": []
+        },
+        {
+          "label": "2",
+          "text": "Zn²⁺",
+          "images": []
+        },
+        {
+          "label": "3",
+          "text": "Cr²⁺",
+          "images": []
+        },
+        {
+          "label": "4",
+          "text": "Fe³⁺",
+          "images": []
+        }
+      ],
+      "correctOptions": [
+        "4"
+      ],
+      "numericalKey": null,
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Structure of atom",
+      "topic": null,
+      "text": "Sodium is irradiated with light of wavelength $x$ nm. The ejected electrons have kinetic energy $2.8\\times10^{-20}$ J and the work function is 2.3 eV. Express $x$ as a multiple of $10^2$ and enter the multiplier to the nearest integer. Take $h=6.6\\times10^{-34}$ J·s, 1 eV $=1.6\\times10^{-19}$ J and $c=3.0\\times10^8$ m/s.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 5,
+        "max": 5
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Chemical kinetics",
+      "topic": null,
+      "text": "The reaction $2A(g)\\to4B(g)+C(g)$ takes place in a closed vessel at 25 °C. At 30 min the total pressure is 300 mm Hg; at infinite time it is 600 mm Hg. Find the partial pressure of C at 30 min in mm Hg, to the nearest integer.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 20,
+        "max": 20
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Electrochemistry",
+      "topic": null,
+      "text": "The standard reduction potentials are:\nCO₂ + 6H⁺ + 6e⁻ → CH₃OH + H₂O, 0.02 V\n½O₂ + 2H⁺ + 2e⁻ → H₂O, 1.23 V\nA fuel cell using these half-reactions operates at 1 bar and 298 K with 80% efficiency. The work from using 1 mol of CH₃OH compresses an ideal gas isothermally against a constant pressure of 1 kPa. Find the signed volume change in m³ to the nearest integer. Take $F=96500$ C/mol.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": -560,
+        "max": -560
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "The d- and f-block elements",
+      "topic": null,
+      "text": "How many of these ions are paramagnetic?\nMn²⁺, Cu²⁺, Zn²⁺, Yb²⁺, Sc³⁺, La³⁺, Gd³⁺, Lu³⁺, Ti⁴⁺, Ce⁴⁺.\nAtomic numbers: Mn 25, Cu 29, Zn 30, Yb 70, Sc 21, La 57, Gd 64, Lu 71, Ti 22, Ce 58.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 3,
+        "max": 3
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    },
+    {
+      "subject": "Chemistry",
+      "chapter": "Practical organic chemistry",
+      "topic": null,
+      "text": "Starting with para-nitrotoluene, apply the sequence (i) Sn/HCl, then OH⁻; (ii) (CH₃CO)₂O; (iii) Br₂/AlBr₃; (iv) H₃O⁺, giving major product P. In Carius analysis with AgNO₃, how many grams of AgBr precipitate from 1.0 g of P? Give the nearest integer. Molar masses in g/mol: C = 12, H = 1, O = 16, N = 14, Br = 80, Ag = 108.",
+      "type": "NUMERICAL",
+      "difficulty": "unrated",
+      "explanation": "",
+      "images": [],
+      "options": [],
+      "correctOptions": [],
+      "numericalKey": {
+        "min": 1,
+        "max": 1
+      },
+      "marks": {
+        "correct": 4,
+        "incorrect": -1,
+        "unattempted": 0
+      }
+    }
+  ]
+}

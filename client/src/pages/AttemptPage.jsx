@@ -55,6 +55,7 @@ export function AttemptPage() {
   if (info.attempt_status === "SUBMITTED")
     return <Navigate replace to={"/app/attempts/" + id + "/results"} />;
   const question = questions[attempt.index];
+  const subjects = [...new Set(questions.map((item) => item.subject_name))];
   const answered = Object.values(attempt.answers).filter(
     (answer) =>
       answer.selectedOptions.length || answer.numericalResponse !== null,
@@ -89,6 +90,27 @@ export function AttemptPage() {
       </header>
       <main className="exam-main">
         <section className="question-panel">
+          <nav className="exam-subjects" aria-label="Exam subjects">
+            {subjects.map((subject) => (
+              <button
+                key={subject}
+                type="button"
+                aria-pressed={subject === question.subject_name}
+                disabled={busy}
+                onClick={() => {
+                  if (subject !== question.subject_name) {
+                    attempt.navigate(
+                      questions.findIndex(
+                        (item) => item.subject_name === subject,
+                      ),
+                    );
+                  }
+                }}
+              >
+                {subject}
+              </button>
+            ))}
+          </nav>
           <div className="question-toolbar">
             <span>
               QUESTION{" "}

@@ -86,11 +86,7 @@ export function PaperPage() {
             <br />
             attempt yours.
           </h2>
-          <p>
-            {item.is_demo
-              ? "This is original demo material, not a historical JEE paper."
-              : item.source_reference}
-          </p>
+          <p>{item.source_reference}</p>
           {error && (
             <p className="alert error" role="alert">
               {error}

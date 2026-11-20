@@ -1054,6 +1054,39 @@ form label {
   object-fit: contain;
   margin: 15px 0;
 }
+.exam-subjects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.85rem clamp(0.75rem, 3vw, 1.8rem);
+  border-bottom: 1px solid var(--line);
+}
+.exam-subjects button {
+  padding: 0.45rem 0.75rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.exam-subjects [aria-pressed="true"] {
+  color: white;
+  background: #19392e;
+  border-color: #19392e;
+}
+.exam-text {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.exam-formula {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  vertical-align: middle;
+  white-space: nowrap;
+}
 .answer-options {
   display: grid;
   gap: 12px;

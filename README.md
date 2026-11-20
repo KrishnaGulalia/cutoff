@@ -12,17 +12,16 @@ server-side scoring and clear question-level feedback.
 - Automatic saves, resume, review flags, answer clearing and submission confirmation.
 - Server-side expiry, ownership checks and transactions for saving/submitting.
 - Results, answer explanations, subject/chapter/topic/difficulty analytics and history.
-- A validated JSON import command and an optional original demo paper.
+- The 2 April 2026 evening paper with 75 questions and its MathonGo answer key.
 
 ## Stack
 
-| Layer          | Choice                                  |
-| -------------- | --------------------------------------- |
-| Interface      | React, Vite, plain CSS                  |
-| API            | Node.js 22.12+ and Express              |
-| Database       | Supabase PostgreSQL with Prisma ORM     |
-| Authentication | Supabase Auth                           |
-| Tests          | Node test runner, Supertest, Playwright |
+| Layer          | Choice                              |
+| -------------- | ----------------------------------- |
+| Interface      | React, Vite, plain CSS              |
+| API            | Node.js 22.12+ and Express          |
+| Database       | Supabase PostgreSQL with Prisma ORM |
+| Authentication | Supabase Auth                       |
 
 Prisma Client reads and writes the application tables. Versioned SQL migrations create the tables, constraints and triggers.
 
@@ -46,7 +45,7 @@ See [Supabase setup](docs/setup.md) for the exact values and dashboard settings.
 ```bash
 npm run check:env
 npm run db:migrate
-npm run seed:demo    # Optional; run once to add original practice questions.
+npm run papers:import
 npm run dev
 ```
 
@@ -78,7 +77,7 @@ prisma/schema.prisma  Prisma models and their database relationships
 supabase/migrations/  Ordered SQL files, applied once
 scripts/              Setup checks, migration and paper import commands
 data/                 Practice paper JSON files
-tests/                Unit, database integration and browser tests
+client/public/papers/ Inline circuit, optics and mechanics figures
 docs/                 Setup, API, data format and design decisions
 ```
 
@@ -92,16 +91,11 @@ Saving an answer and its selected options takes one transaction. If submission
 arrives during a save, PostgreSQL waits for the save to finish before closing
 the attempt. See the [architecture notes](docs/architecture.md).
 
-## Verification
+## April 2026 papers
 
-```bash
-npm test
-npm run build
-npm run format:check
-```
+The library contains the 2 April evening shift. Mathematics, Physics and Chemistry have 25 questions each. The 180-minute paper carries 300 marks. The prompts and options are stored as editable JSON text. Subject buttons switch sections during an attempt, and four questions display a diagram inline.
 
-See the [testing guide](docs/testing.md) for the PostgreSQL integration tests and
-browser tests.
+Run `npm run papers:import` after applying the migrations. Repeating the command skips papers already imported. Answer keys stay in the database and server-side JSON. The browser receives the key after submission.
 
 ## Team
 

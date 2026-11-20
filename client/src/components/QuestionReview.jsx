@@ -1,3 +1,5 @@
+import { ExamText } from "./ExamText";
+import { QuestionImage } from "./QuestionImage";
 import { useState, useRef, useEffect } from "react";
 import { formatTime } from "../lib/formatTime";
 export function QuestionReview({ questions, selectedPosition, initialFilter }) {
@@ -64,7 +66,9 @@ export function QuestionReview({ questions, selectedPosition, initialFilter }) {
         >
           <summary>
             <span className="review-number">Q{question.position}</span>
-            <span>{question.question_text}</span>
+            <span>
+              <ExamText text={question.question_text} />
+            </span>
             <span className={"badge " + question.outcome}>
               {question.outcome === "unattempted"
                 ? "Skipped"
@@ -81,12 +85,16 @@ export function QuestionReview({ questions, selectedPosition, initialFilter }) {
               {formatTime(question.timeSpentSeconds)}
               {question.markedForReview ? " · Marked for review" : ""}
             </p>
-            {question.images.map((url) => (
-              <img
-                className="question-image"
-                src={url}
-                alt="Question diagram"
+            {question.images.map((url, index) => (
+              <QuestionImage
+                url={url}
                 key={url}
+                title={
+                  "Diagram " +
+                  (index + 1) +
+                  " for question " +
+                  question.position
+                }
               />
             ))}
             {question.options.map((option) => (
@@ -98,7 +106,7 @@ export function QuestionReview({ questions, selectedPosition, initialFilter }) {
                 }
                 key={option.label}
               >
-                <strong>{option.label}.</strong> {option.text}
+                <strong>{option.label}.</strong> <ExamText text={option.text} />
                 {option.images.map((url) => (
                   <img
                     className="question-image"
@@ -131,11 +139,12 @@ export function QuestionReview({ questions, selectedPosition, initialFilter }) {
                   : question.correctOptions.join(", ")}
               </p>
             </div>
-            <h3>Why it works</h3>
-            <p className="explanation">
-              {question.explanation_text ||
-                "An explanation has not been added for this question."}
-            </p>
+            {question.explanation_text && (
+              <>
+                <h3>Why it works</h3>
+                <p className="explanation">{question.explanation_text}</p>
+              </>
+            )}
           </div>
         </details>
       ))}

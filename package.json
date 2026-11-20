@@ -8,17 +8,14 @@
     "dev:server": "node --watch src/server.js",
     "dev:client": "npm --prefix client run dev",
     "build": "npm --prefix client run build",
-    "test": "node --test tests/*.test.js",
-    "test:integration": "node --test tests/integration/*.test.js",
-    "test:e2e": "playwright test",
     "db:migrate": "node scripts/migrate.js",
     "data:validate": "node scripts/validate-paper.js",
     "data:import": "node scripts/import-paper.js",
-    "seed:demo": "node scripts/import-paper.js data/demo-paper.json",
     "check:env": "node scripts/check-env.js",
-    "format": "prettier --write src client/src scripts tests docs README.md package.json client/package.json playwright.config.js client/vite.config.js",
-    "format:check": "prettier --check src client/src scripts tests docs README.md package.json client/package.json playwright.config.js client/vite.config.js",
-    "postinstall": "prisma generate"
+    "format": "prettier --write src client/src scripts docs README.md package.json client/package.json client/vite.config.js",
+    "format:check": "prettier --check src client/src scripts docs README.md package.json client/package.json client/vite.config.js",
+    "postinstall": "prisma generate",
+    "papers:import": "node scripts/import-paper.js data/2026-session-2"
   },
   "keywords": [],
   "author": "",
@@ -35,12 +32,9 @@
     "helmet": "^8.3.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.65.1",
     "concurrently": "^10.0.7",
-    "pg": "^8.23.1",
     "prettier": "^3.10.1",
-    "prisma": "6.19.3",
-    "supertest": "^7.3.2"
+    "prisma": "6.19.3"
   },
   "private": true,
   "engines": {

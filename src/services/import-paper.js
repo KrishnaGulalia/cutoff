@@ -44,7 +44,7 @@ async function addQuestion(tx, testId, question, position) {
     await tx.questionOption.create({
       data: { ...key, option_text: option.text },
     });
-    if (option.images.length)
+    if (option.images.length > 0) {
       await tx.optionImage.createMany({
         data: option.images.map((image_url, i) => ({
           ...key,
@@ -52,15 +52,17 @@ async function addQuestion(tx, testId, question, position) {
           image_position: i + 1,
         })),
       });
+    }
   }
-  if (question.correctOptions.length)
+  if (question.correctOptions.length > 0) {
     await tx.correctOption.createMany({
       data: question.correctOptions.map((option_label) => ({
         question_id,
         option_label,
       })),
     });
-  if (question.numericalKey)
+  }
+  if (question.numericalKey) {
     await tx.numericalKey.create({
       data: {
         question_id,
@@ -68,7 +70,8 @@ async function addQuestion(tx, testId, question, position) {
         accepted_max: question.numericalKey.max,
       },
     });
-  if (question.images.length)
+  }
+  if (question.images.length > 0) {
     await tx.questionImage.createMany({
       data: question.images.map((image_url, i) => ({
         question_id,
@@ -76,6 +79,7 @@ async function addQuestion(tx, testId, question, position) {
         image_position: i + 1,
       })),
     });
+  }
   await tx.testQuestion.create({
     data: {
       test_id: testId,
@@ -88,9 +92,11 @@ async function addQuestion(tx, testId, question, position) {
   });
 }
 
-async function importPaper(db, paper) {
+async function importPaper(db, paper, { skipExisting = false } = {}) {
   const errors = validatePaper(paper);
-  if (errors.length) throw new Error(errors.join("\n"));
+  if (errors.length > 0) {
+    throw new Error(errors.join("\n"));
+  }
   return db.$transaction(
     async (tx) => {
       // Serialize imports so simultaneous commands cannot publish duplicate papers.
@@ -100,10 +106,13 @@ async function importPaper(db, paper) {
         exam_year: paper.year,
         session_label: paper.session.trim(),
       };
-      if (await tx.test.findFirst({ where: key }))
+      const existingPaper = await tx.test.findFirst({ where: key });
+      if (existingPaper) {
+        if (skipExisting) return null;
         throw new Error(
           "This paper is already imported. Use a new title/session for a corrected version.",
         );
+      }
       const test = await tx.test.create({
         data: {
           ...key,
@@ -112,8 +121,9 @@ async function importPaper(db, paper) {
           is_demo: paper.isDemo,
         },
       });
-      for (const [index, question] of paper.questions.entries())
+      for (const [index, question] of paper.questions.entries()) {
         await addQuestion(tx, test.test_id, question, index + 1);
+      }
       return test.test_id.toString();
     },
     { timeout: 600000 },

@@ -5,15 +5,14 @@ function id(value) {
   return value;
 }
 function answerInput(body) {
-  if (
-    !body ||
-    !Array.isArray(body.selectedOptions) ||
-    body.selectedOptions.length > 26 ||
-    body.selectedOptions.some(
-      (label) => typeof label !== "string" || !/^[A-Z]$/.test(label),
-    )
-  ) {
+  const labels = body?.selectedOptions;
+  if (!Array.isArray(labels) || labels.length > 26) {
     throw new AppError(400, "Choose valid option labels.");
+  }
+  for (const label of labels) {
+    if (typeof label !== "string" || !/^[A-Z1-4]$/.test(label)) {
+      throw new AppError(400, "Choose valid option labels.");
+    }
   }
   if (
     typeof body.markedForReview !== "boolean" ||
@@ -23,11 +22,8 @@ function answerInput(body) {
   )
     throw new AppError(400, "Invalid review flag or time.");
   const number = body.numericalResponse;
-  if (
-    number !== null &&
-    (typeof number !== "number" || !Number.isFinite(number))
-  )
+  if (number !== null && !Number.isFinite(number))
     throw new AppError(400, "Enter a finite numerical answer.");
-  return { ...body, selectedOptions: [...new Set(body.selectedOptions)] };
+  return { ...body, selectedOptions: [...new Set(labels)] };
 }
 module.exports = { id, answerInput };
